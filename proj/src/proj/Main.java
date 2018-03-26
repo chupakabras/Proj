@@ -6,6 +6,6 @@ public class Main {
 		ReadFile r = new ReadFile();
 		r.openFile();
 		r.readFile();
-		r.closeFile();
+//	r.closeFile();
 	}
 }
