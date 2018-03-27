@@ -1,1 +1,7 @@
 Final program functionality
+
+Program creates online gift shop where clients can buy and order different gifts.
+Every gift is limited, program shows how many gifts can be bought and how many already left.
+Then someone "enters" the online shop it asks to type your name and email to identify 
+what gifts you have already bought, what you need to order and what you will buy now.
+Online shop has two modes: for buying and ordering gifts. Then someone orders the gift program reserves chosen time for that client.
