@@ -24,4 +24,7 @@ public class GiftBean {
 	public void setOwner(String owner) {
 		this.owner = owner;
 	}
+	public String toString() {
+		return (getName() + " " + getDate() + " " + getOwner());
+	}
 }
