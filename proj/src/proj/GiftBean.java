@@ -27,4 +27,5 @@ public class GiftBean {
 	public String toString() {
 		return (getName() + " " + getDate() + " " + getOwner());
 	}
+	//
 }

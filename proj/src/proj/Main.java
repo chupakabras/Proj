@@ -5,7 +5,7 @@ public class Main {
 		
 		Main kek = new Main();
 		GiftBean[] gift = kek.store();
-//
+////
 	}
 	
 	public GiftBean[] store() {
