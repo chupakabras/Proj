@@ -5,7 +5,6 @@ public class Main {
 		
 		Main kek = new Main();
 		GiftBean[] gift = kek.store();
-////
 	}
 	
 	public GiftBean[] store() {
@@ -25,7 +24,6 @@ public class Main {
 			gift[i].setName(wordsplit[0]);
 			gift[i].setDate(wordsplit[1]);
 			gift[i].setOwner(wordsplit[2]);
-			
 		}
 		return gift;
 	}
