@@ -25,6 +25,7 @@ public class Main {
 			gift[i] = new GiftBean();
 			temp[i] = r.getLine();
 			wordsplit = temp[i].split(" ");
+			wordsplit[0] = wordsplit[0].replace("_", " ");
 			gift[i].setName(wordsplit[0]);
 			gift[i].setDate(wordsplit[1]);
 			gift[i].setOwner(wordsplit[2]);
