@@ -8,9 +8,11 @@ public class Main {
 		GiftBean[] gift = kek.store();
 	//	kek.printAll(gift);
 		
-		Interface usr = new Interface();
-		usr.setName();
-		System.out.println(usr.getName());
+		System.out.println(gift[1].toString());
+		
+	//	Interface usr = new Interface();
+	//	usr.setName();
+	//	System.out.println(usr.getName());
 		///
 	}
 }
