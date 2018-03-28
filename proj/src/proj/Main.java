@@ -6,7 +6,11 @@ public class Main {
 		
 		ReadAndStore kek = new ReadAndStore();
 		GiftBean[] gift = kek.store();
-		kek.printAll(gift);
+	//	kek.printAll(gift);
+		
+		Interface usr = new Interface();
+		usr.setName();
+		System.out.println(usr.getName());
 	}
 }
 
