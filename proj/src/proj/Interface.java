@@ -1,6 +1,9 @@
 package proj;
 
 import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 public class Interface {
 	private String userName;

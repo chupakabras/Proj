@@ -11,7 +11,7 @@ public class Main {
 		Interface usr = new Interface();
 		usr.setName();
 		System.out.println(usr.getName());
-		//
+		///
 	}
 }
 
