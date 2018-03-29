@@ -1,12 +1,11 @@
 package proj;
 
-//import javax.swing.JOptionPane;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
-//import java.awt.event.*;
 import java.awt.event.ItemListener;
 
 public class Interface extends JFrame {
@@ -55,4 +54,3 @@ public class Interface extends JFrame {
 	}
 
 }
-//
