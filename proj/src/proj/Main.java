@@ -18,10 +18,8 @@ public class Main {
 
 		//System.out.println(gift[1].toString());
 		Interface usr = new Interface();
+		usr.setName();
+		System.out.println(usr.getName());
 
-
-		 usr.setName();
-		 System.out.println(usr.getName());
-		///
 	}
 }

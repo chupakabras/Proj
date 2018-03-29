@@ -14,8 +14,10 @@ public class Interface extends JFrame {
 	
 
 	private static String[] time = { "2017", "2018", "2019" };
+	private static String[] month = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 	
 	JComboBox box = new JComboBox(time);
+	JComboBox box2 = new JComboBox(month);
 	JButton button = new JButton("Check");
 	JLabel label = new JLabel();
 	
@@ -30,19 +32,20 @@ public class Interface extends JFrame {
 	public void frame() {
 		JFrame f = new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setSize(300,200);
+		f.setSize(220,85);
 		f.setVisible(true);
 		
 		JPanel p = new JPanel();
 		p.add(box);
+		p.add(box2);
 		p.add(button);
 		
 		f.add(p);
 		
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				String d = box.getSelectedItem().toString();
-				System.out.println(d);
+				System.out.println(box.getSelectedItem().toString());
+				System.out.println(box2.getSelectedItem().toString());
 			}
 		}
 				);
