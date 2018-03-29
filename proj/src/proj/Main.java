@@ -12,7 +12,7 @@ public class Main {
 		// kek.printAll(gift);
 		table gui = new table();
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		gui.setSize(600, 200);
+		gui.setSize(1000, 600);
 		gui.setVisible(true);
 		gui.setTitle("Gift list"); 
 

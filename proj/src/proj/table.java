@@ -22,7 +22,7 @@ public class table extends JFrame {
 		
 		//lalala
 		table = new JTable (data, columnNames);
-		table.setPreferredScrollableViewportSize(new Dimension(500, 50));
+		table.setPreferredScrollableViewportSize(new Dimension(700, 300));
 		table.setFillsViewportHeight(true);
 		
 		JScrollPane scrollPane = new JScrollPane(table);
