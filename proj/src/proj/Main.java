@@ -1,5 +1,8 @@
 package proj;
 
+import javax.swing.JFrame;
+import java.awt.*;
+
 public class Main {
 	
 	public static void main(String[] args) {
@@ -7,6 +10,12 @@ public class Main {
 		ReadAndStore kek = new ReadAndStore();
 		GiftBean[] gift = kek.store();
 	//	kek.printAll(gift);
+		table gui = new table();
+		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gui.setSize(600,200);
+		gui.setVisible(true);
+		gui.setTitle("Gift list");
+		
 		
 		System.out.println(gift[1].toString());
 		
