@@ -13,12 +13,10 @@ public class table extends JFrame{
 		String[] columnNames = {"Gift Name", "When can be ordered", "Order info"};
 			String[][] data = new String[rows.getNumberOfRows()][3];
 			for (int i=0; i<rows.getNumberOfRows(); i++) {
-				
-				for (int j=0; j<3; j++) {
-				 data  = {gift[i].getName(), gift[i].getDate(), gift[i].getOwner()};
-				 
-				}
-				
+				data[i][0] = gift[i].getName();
+				data[i][1] = gift[i].getDate();
+				data[i][2] = gift[i].getOwner();
+				}		
 		};
 		
 		
