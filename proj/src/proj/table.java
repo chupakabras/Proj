@@ -3,7 +3,7 @@ package proj;
 import javax.swing.*;
 import java.awt.*;
 
-public class table extends JFrame{
+public class table extends JFrame {
 	JTable table;
 	ReadAndStore kek = new ReadAndStore();
 	GiftBean[] gift = kek.store();
@@ -27,7 +27,8 @@ public class table extends JFrame{
 		
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
+		
 	}
 
-}
+
 
