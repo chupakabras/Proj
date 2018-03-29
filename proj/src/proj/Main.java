@@ -17,13 +17,11 @@ public class Main {
 		gui.setTitle("Gift list"); 
 
 		//System.out.println(gift[1].toString());
-		//new Interface();
-	//	pick.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	//	pick.setSize(300,200);
-	//	pick.setVisible(true);
-		// Interface usr = new Interface();
-		// usr.setName();
-		// System.out.println(usr.getName());
+		Interface usr = new Interface();
+
+
+		 usr.setName();
+		 System.out.println(usr.getName());
 		///
 	}
 }
