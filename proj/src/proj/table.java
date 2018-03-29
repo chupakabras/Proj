@@ -17,7 +17,7 @@ public class table extends JFrame {
 				data[i][1] = gift[i].getDate();
 				data[i][2] = gift[i].getOwner();
 				}		
-		};
+		
 		
 		
 		//lalala
@@ -27,7 +27,7 @@ public class table extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
-		
+		};
 	}
 
 

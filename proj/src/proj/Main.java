@@ -10,14 +10,14 @@ public class Main {
 		ReadAndStore kek = new ReadAndStore();
 		GiftBean[] gift = kek.store();
 		// kek.printAll(gift);
-	/*	table gui = new table();
+		table gui = new table();
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gui.setSize(600, 200);
 		gui.setVisible(true);
-		gui.setTitle("Gift list"); */
+		gui.setTitle("Gift list"); 
 
 		//System.out.println(gift[1].toString());
-		new Interface();
+		//new Interface();
 	//	pick.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	//	pick.setSize(300,200);
 	//	pick.setVisible(true);
