@@ -11,9 +11,13 @@ public class table extends JFrame{
 	public table() {
 		setLayout(new FlowLayout());
 		String[] columnNames = {"Gift Name", "When can be ordered", "Order info"};
-		
+			String[][] data = new String[rows.getNumberOfRows()][3];
 			for (int i=0; i<rows.getNumberOfRows(); i++) {
-				String[][] data = {gift[i].getName(), gift[i].getDate(), gift[i].getOwner()};
+				
+				for (int j=0; j<3; j++) {
+				 data[][] = {gift[i].getName(), gift[i].getDate(), gift[i].getOwner()};
+				 
+				}
 				
 		};
 		
