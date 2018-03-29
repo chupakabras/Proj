@@ -15,14 +15,14 @@ public class table extends JFrame{
 			for (int i=0; i<rows.getNumberOfRows(); i++) {
 				
 				for (int j=0; j<3; j++) {
-				 data[][] = {gift[i].getName(), gift[i].getDate(), gift[i].getOwner()};
+				 data  = {gift[i].getName(), gift[i].getDate(), gift[i].getOwner()};
 				 
 				}
 				
 		};
 		
 		
-		
+		//lalala
 		table = new JTable (data, columnNames);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 50));
 		table.setFillsViewportHeight(true);
