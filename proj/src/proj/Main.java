@@ -10,7 +10,7 @@ public class Main {
 		ReadAndStore kek = new ReadAndStore();
 		GiftBean[] gift = kek.store();
 		// kek.printAll(gift);
-		table gui = new table();
+		Table gui = new Table();
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gui.setSize(1000, 600);
 		gui.setVisible(true);
