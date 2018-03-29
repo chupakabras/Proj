@@ -9,7 +9,7 @@ public class ReadAndStore{
 		int rows = r.getNumberOfRows();
 		this.rows = rows;
 		String[] temp = new String[rows];
-		String[] wordsplit = new String[3];
+		String[] wordsplit = new String[4];
 		
 		GiftBean[] gift = new GiftBean[rows];
 		
@@ -20,7 +20,9 @@ public class ReadAndStore{
 			wordsplit[0] = wordsplit[0].replace("_", " ");
 			gift[i].setName(wordsplit[0]);
 			gift[i].setDate(wordsplit[1]);
-			gift[i].setOwner(wordsplit[2]);
+			gift[i].setRemaining(Integer.parseInt(wordsplit[2]));
+			gift[i].setReserved(Integer.parseInt(wordsplit[3]));
+			
 		}
 		r.closeFile();
 		

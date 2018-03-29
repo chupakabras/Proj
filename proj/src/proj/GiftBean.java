@@ -4,7 +4,8 @@ public class GiftBean {
 	
 	private String name;
 	private String date;
-	private String owner;
+	private int remaining;
+	private int reserved;
 	
 	public String getName() {
 		return name;
@@ -22,15 +23,22 @@ public class GiftBean {
 		this.date = date;
 	}
 	
-	public String getOwner() {
-		return owner;
+	public int getRemaining() {
+		return remaining;
 	}
 	
-	public void setOwner(String owner) {
-		this.owner = owner;
+	public void setRemaining(int remaining) {
+		this.remaining = remaining;
 	}
 	
+	public int getReserved() {
+		return reserved;
+	}
+	
+	public void setReserved(int reserved) {
+		this.reserved = reserved;
+	}
 	public String toString() {
-		return (getName() + " " + getDate() + " " + getOwner());
+		return (getName() + " " + getDate() + " " + getRemaining() + " " + getReserved());
 	}
 }

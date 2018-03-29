@@ -10,12 +10,13 @@ public class Table extends JFrame {
 	ReadFile rows = new ReadFile();
 	public Table() {
 		setLayout(new FlowLayout());
-		String[] columnNames = {"Gift Name", "When can be ordered", "Order info"};
-			String[][] data = new String[rows.getNumberOfRows()][3];
+		String[] columnNames = {"Gift Name", "When can be ordered", "Remaining", "Reserved"};
+			String[][] data = new String[rows.getNumberOfRows()][4];
 			for (int i=0; i<rows.getNumberOfRows(); i++) {
 				data[i][0] = gift[i].getName();
 				data[i][1] = gift[i].getDate();
-				data[i][2] = gift[i].getOwner();
+				data[i][2] = Integer.toString(gift[i].getRemaining());
+				data[i][3] = Integer.toString(gift[i].getReserved());
 				}		
 		
 		//lalala
