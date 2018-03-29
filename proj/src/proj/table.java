@@ -7,12 +7,13 @@ public class table extends JFrame{
 	JTable table;
 	ReadAndStore kek = new ReadAndStore();
 	GiftBean[] gift = kek.store();
+	ReadFile rows = new ReadFile();
 	public table() {
 		setLayout(new FlowLayout());
 		String[] columnNames = {"Gift Name", "When can be ordered", "Order info"};
 		
-			for (int i=0; i<5; i++) {
-				Object[][] data = {gift[i].getName(), gift[i].getDate(), gift[i].getOwner()};
+			for (int i=0; i<rows.getNumberOfRows(); i++) {
+				String[][] data = {gift[i].getName(), gift[i].getDate(), gift[i].getOwner()};
 				
 		};
 		
