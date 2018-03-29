@@ -5,7 +5,8 @@ import java.awt.*;
 
 public class table extends JFrame{
 	JTable table;
-	
+	ReadAndStore kek = new ReadAndStore();
+	GiftBean[] gift = kek.store();
 	public table() {
 		setLayout(new FlowLayout());
 		String[] columnNames = {"Gift Name", "When can be ordered", "Order info"};
@@ -14,6 +15,8 @@ public class table extends JFrame{
 				Object[][] data = {gift[i].getName(), gift[i].getDate(), gift[i].getOwner()};
 				
 		};
+		
+		
 		
 		table = new JTable (data, columnNames);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 50));
