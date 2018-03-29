@@ -20,6 +20,7 @@ public class ReadFile {
 	}
 	
 	public int getNumberOfRows() {
+		openFile();
 		int rows = 0;
 		while (f.hasNext()) {
 			f.nextLine();
