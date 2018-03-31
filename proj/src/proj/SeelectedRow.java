@@ -1,0 +1,70 @@
+package proj;
+
+import java.awt.FlowLayout;
+import java.io.*;
+import java.util.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+public class SeelectedRow extends JFrame {
+	JTable table;
+	ReadAndStore kek = new ReadAndStore();
+	GiftBean[] gift = kek.store();
+	ReadFile rows = new ReadFile();
+	
+	public static void main(String[] args) {
+		
+	SeelectedRow s;
+	s = new SeelectedRow();
+	s.setVisible(true);	
+	
+	SeelectedRow gui = new SeelectedRow();
+	gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	gui.setSize(1000, 600);
+	gui.setVisible(true);
+	gui.setTitle("Gift list");
+	
+	
+	}
+	
+	public SeelectedRow () {
+		setLayout(new FlowLayout());
+		String[] columnNames = {"Gift Name", "When can be ordered", "Order info"};
+			String[][] data = new String[rows.getNumberOfRows()][3];
+			for (int i=0; i<rows.getNumberOfRows(); i++) {
+				data[i][0] = gift[i].getName();
+				data[i][1] = gift[i].getDate();
+				data[i][2] = gift[i].getOwner();
+				}		
+			
+		
+		table = new JTable (data, columnNames);
+		
+		JScrollPane scrollPane = new JScrollPane(table);
+		add(scrollPane);
+		
+		ListSelectionModel model = table.getSelectionModel();
+		model.addListSelectionListener(new ListSelectionListener() {
+			
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				if (! model.isSelectionEmpty())
+				{
+					int selectedRow=model.getMinSelectionIndex();
+					JOptionPane.showMessageDialog(null, "Selected Row "+selectedRow);
+					
+					//Kodas, kad irasytu pasirinktos eilutes duomenis i faila
+				}
+			}
+			
+		});
+	}
+	
+}
+	
