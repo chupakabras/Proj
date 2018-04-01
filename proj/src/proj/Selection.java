@@ -56,7 +56,7 @@ public class Selection extends JFrame {
 				if (! model.isSelectionEmpty())
 				{
 					int selectedRow = model.getMinSelectionIndex();
-					JOptionPane.showMessageDialog(null, "Selected Row "+selectedRow);
+					JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is selected");
 					
 					//Kodas, kad irasytu pasirinktos eilutes duomenis i faila
 				}
