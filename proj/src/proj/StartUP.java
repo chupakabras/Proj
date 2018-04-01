@@ -63,7 +63,7 @@ public class StartUP {
 				gui.setSize(1000, 600);
 				gui.setVisible(true);
 				gui.setTitle("Gift list");
-
+				
 			}
 		});
 		btnBuy.setBounds(109, 11, 89, 23);
