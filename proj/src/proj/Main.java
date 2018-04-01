@@ -3,23 +3,35 @@ package proj;
 import javax.swing.JFrame;
 import java.awt.*;
 
+import javafx.application.Application;
+import javafx.stage.Stage;
+
 public class Main {
 
 	public static void main(String[] args) {
 
 		ReadAndStore kek = new ReadAndStore();
-		GiftBean[] gift = kek.store();
+	//	GiftBean[] gift = kek.store();
 		// kek.printAll(gift);
-		SeelectedRow gui = new SeelectedRow();
-		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//<<<<<<< HEAD
+		//Selection gui = new Selection();
+		//gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//=======
+		//Table gui = new Table();
+/*		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+>>>>>>> branch 'master' of https://github.com/chupakabras/proj.git
 		gui.setSize(1000, 600);
 		gui.setVisible(true);
-		gui.setTitle("Gift list"); 
+		gui.setTitle("Gift list");  */
 
 		//System.out.println(gift[1].toString());
-		Interface usr = new Interface();
-		usr.setName();
-		System.out.println(usr.getName());
+	//	Interface usr = new Interface();
+	//	usr.setName();
+		//System.out.println(usr.getName());
+		
+		DatePickerTest j = new DatePickerTest();
+		j.start(null);
+		
 
 	}
 }
