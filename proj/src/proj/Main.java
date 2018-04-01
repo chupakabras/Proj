@@ -28,7 +28,6 @@ public class Main {
 	//	Interface usr = new Interface();
 	//	usr.setName();
 		//System.out.println(usr.getName());
-		
 		DatePickerTest j = new DatePickerTest();
 		j.start(null);
 		

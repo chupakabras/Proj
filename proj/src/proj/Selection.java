@@ -17,23 +17,12 @@ public class Selection extends JFrame {
 	GiftBean[] gift = kek.store();
 	ReadFile rows = new ReadFile();
 	
-	public static void main(String[] args) {
-		
-	Selection s = new Selection();
-	s.setVisible(true);	
-	
-	Selection gui = new Selection();
-	gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	gui.setSize(1000, 600);
-	gui.setVisible(true);
-	gui.setTitle("Gift list");
-	
-	}
+
 	//String strI = Integer.toString(i);
 	JTable table;
 	public Selection () {
 		setLayout(new FlowLayout());
-		String[] columnNames = {"Gift Name", "When can be ordered", "Order info"};
+		String[] columnNames = {"Gift Name", "When can be ordered", "Left","Reserved" };
 			String[][] data = new String[rows.getNumberOfRows()][4];
 						for (int i=0; i<rows.getNumberOfRows(); i++) {
 				data[i][0] = gift[i].getName();
