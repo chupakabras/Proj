@@ -13,8 +13,13 @@ public class Main {
 		ReadAndStore kek = new ReadAndStore();
 	//	GiftBean[] gift = kek.store();
 		// kek.printAll(gift);
+//<<<<<<< HEAD
+		//Selection gui = new Selection();
+		//gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//=======
 		//Table gui = new Table();
 /*		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+>>>>>>> branch 'master' of https://github.com/chupakabras/proj.git
 		gui.setSize(1000, 600);
 		gui.setVisible(true);
 		gui.setTitle("Gift list");  */
