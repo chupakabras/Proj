@@ -10,7 +10,7 @@ import javax.swing.JButton;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler; //++
+import javafx.event.EventHandler; 
 import javafx.geometry.HPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -86,7 +86,7 @@ public class DatePickerTest extends Application {
 		vbox.getChildren().add(gridPane);
 		checkInDatePicker.requestFocus();
 		
-		Button button = new Button("New button");
+		Button button = new Button("Check");
 		vbox.getChildren().add(button);
 		
 		button.setOnAction(new EventHandler<ActionEvent>() {
