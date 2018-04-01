@@ -32,7 +32,6 @@ public class Selection extends JFrame {
 				}		
 		
 		table = new JTable (data, columnNames);
-		
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
 		
@@ -46,6 +45,7 @@ public class Selection extends JFrame {
 				{
 					int selectedRow = model.getMinSelectionIndex();
 					JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is selected");
+					
 					gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
 					gift[selectedRow].setRemaining(gift[selectedRow].getRemaining() - 1);
 					//Kodas, kad irasytu pasirinktos eilutes duomenis i faila
