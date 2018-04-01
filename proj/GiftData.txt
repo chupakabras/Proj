@@ -1,4 +1,3 @@
-_ _ _ _
 Tango_dance_lesson_outside 4-8 50 0
 Beginner_skiing_lesson 12-2 12 0
 Jump_with_the_parashute 6-9 2 0
