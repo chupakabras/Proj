@@ -11,37 +11,36 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-public class SeelectedRow extends JFrame {
-	JTable table;
+public class Selection extends JFrame {
+	
 	ReadAndStore kek = new ReadAndStore();
 	GiftBean[] gift = kek.store();
 	ReadFile rows = new ReadFile();
 	
 	public static void main(String[] args) {
 		
-	SeelectedRow s;
-	s = new SeelectedRow();
+	Selection s = new Selection();
 	s.setVisible(true);	
 	
-	SeelectedRow gui = new SeelectedRow();
+	Selection gui = new Selection();
 	gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	gui.setSize(1000, 600);
 	gui.setVisible(true);
 	gui.setTitle("Gift list");
 	
-	
 	}
-	
-	public SeelectedRow () {
+	//String strI = Integer.toString(i);
+	JTable table;
+	public Selection () {
 		setLayout(new FlowLayout());
 		String[] columnNames = {"Gift Name", "When can be ordered", "Order info"};
 			String[][] data = new String[rows.getNumberOfRows()][3];
-			for (int i=0; i<rows.getNumberOfRows(); i++) {
+						for (int i=0; i<rows.getNumberOfRows(); i++) {
 				data[i][0] = gift[i].getName();
 				data[i][1] = gift[i].getDate();
-				data[i][2] = gift[i].getOwner();
+				data[i][2] = Integer.toString(gift[i].getRemaining());
+				data[i][3] = Integer.toString(gift[i].getReserved());
 				}		
-			
 		
 		table = new JTable (data, columnNames);
 		
@@ -56,7 +55,7 @@ public class SeelectedRow extends JFrame {
 			public void valueChanged(ListSelectionEvent e) {
 				if (! model.isSelectionEmpty())
 				{
-					int selectedRow=model.getMinSelectionIndex();
+					int selectedRow = model.getMinSelectionIndex();
 					JOptionPane.showMessageDialog(null, "Selected Row "+selectedRow);
 					
 					//Kodas, kad irasytu pasirinktos eilutes duomenis i faila
