@@ -34,7 +34,7 @@ public class Selection extends JFrame {
 	public Selection () {
 		setLayout(new FlowLayout());
 		String[] columnNames = {"Gift Name", "When can be ordered", "Order info"};
-			String[][] data = new String[rows.getNumberOfRows()][3];
+			String[][] data = new String[rows.getNumberOfRows()][4];
 						for (int i=0; i<rows.getNumberOfRows(); i++) {
 				data[i][0] = gift[i].getName();
 				data[i][1] = gift[i].getDate();
@@ -66,4 +66,3 @@ public class Selection extends JFrame {
 	}
 	
 }
-	
