@@ -41,18 +41,18 @@ public class StartUP {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 223, 87);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	//	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnReserve = new JButton("Reserve");
 		btnReserve.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent args0) {
-				
+				/*
 				ReserveDate s = new ReserveDate();
 				s.setVisible(true);	
-				
+				*/
 				ReserveDate gui = new ReserveDate();
-				gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			//	gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				gui.setSize(500, 500);
 				gui.setVisible(true);
 				gui.setTitle("Reserve Date");
@@ -65,12 +65,13 @@ public class StartUP {
 		JButton btnBuy = new JButton("Buy");
 		btnBuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				/*
 				Selection s = new Selection();
 				s.setVisible(true);	
+				*/
 				
 				Selection gui = new Selection();
-				gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			//	gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				
 				gui.setSize(500, 500);
 				gui.setVisible(true);
