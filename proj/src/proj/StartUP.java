@@ -52,7 +52,7 @@ public class StartUP {
 				
 				ReserveDate gui = new ReserveDate();
 				gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				gui.setSize(1000, 600);
+				gui.setSize(500, 500);
 				gui.setVisible(true);
 				gui.setTitle("Reserve Date");
 				
@@ -70,7 +70,7 @@ public class StartUP {
 				
 				Selection gui = new Selection();
 				gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				gui.setSize(1000, 600);
+				gui.setSize(500, 500);
 				gui.setVisible(true);
 				gui.setTitle("Gift list");
 				
