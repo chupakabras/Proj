@@ -4,11 +4,15 @@ import javax.swing.JFrame;
 import java.awt.*;
 
 import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Main {
 
-	public static void main(String[] args) {
+	 public static void main(String[] args) {
 
 		ReadAndStore kek = new ReadAndStore();
 	//	GiftBean[] gift = kek.store();
@@ -28,9 +32,9 @@ public class Main {
 	//	Interface usr = new Interface();
 	//	usr.setName();
 		//System.out.println(usr.getName());
-		DatePickerTest j = new DatePickerTest();
-		j.start(null);
+		Application.launch(DatePickerTest.class, args);
 		
+		//System.out.println(a);
 
-	}
+	}	
 }
