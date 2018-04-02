@@ -48,7 +48,8 @@ public class Selection extends JFrame {
 					
 					gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
 					gift[selectedRow].setRemaining(gift[selectedRow].getRemaining() - 1);
-					//Kodas, kad irasytu pasirinktos eilutes duomenis i faila
+					EditGiftData edit = new EditGiftData();
+					edit.writeFile(rows.getNumberOfRows(), gift);
 				}
 			}
 			
