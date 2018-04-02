@@ -1,5 +1,5 @@
-Tango_dance_lesson_outside 4-8 null
-Beginner_skiing_lesson 12-2 null
-Jump_with_the_parashute 6-9 null
-Romantic_dinner_for_two_in_italian_retaurant 1-12 null
-Flying_with_air_baloon 5-9 null
+Tango_dance_lesson_outside 4-8 50 0
+Beginner_skiing_lesson 12-2 12 0
+Jump_with_the_parashute 6-9 0 2
+Romantic_dinner_for_two_in_italian_retaurant 1-12 69 0
+Flying_with_air_baloon 5-9 420 0

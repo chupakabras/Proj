@@ -23,7 +23,7 @@ public class ReserveDate extends JFrame {
 	public ReserveDate () {
 		setLayout(new FlowLayout());
 		String[] columnNames = {"Gift Name", "Reserved for" };
-			String[][] data = new String[rows.getNumberOfRows()][4];
+			String[][] data = new String[rows.getNumberOfRows()][2];
 						for (int i=0; i<rows.getNumberOfRows(); i++) {
 				data[i][0] = gift[i].getName();
 				data[i][1] = gift[i].getDate().replace("_", " ");
