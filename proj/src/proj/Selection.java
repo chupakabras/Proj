@@ -50,6 +50,8 @@ public class Selection extends JFrame {
 					gift[selectedRow].setRemaining(gift[selectedRow].getRemaining() - 1);
 					EditGiftData edit = new EditGiftData();
 					edit.writeFile(rows.getNumberOfRows(), gift);
+					EditReservedData rowadd = new EditReservedData();
+					rowadd.addRow(selectedRow, gift);
 				}
 			}
 			
