@@ -26,7 +26,7 @@ public class ReserveDate extends JFrame {
 			String[][] data = new String[rows.getNumberOfRows()][4];
 						for (int i=0; i<rows.getNumberOfRows(); i++) {
 				data[i][0] = gift[i].getName();
-				data[i][1] = gift[i].getDate();
+				data[i][1] = gift[i].getDate().replace("_", " ");
 				}		
 		
 		table = new JTable (data, columnNames);
