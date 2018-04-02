@@ -3,6 +3,7 @@ package proj;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -70,6 +71,7 @@ public class StartUP {
 				
 				Selection gui = new Selection();
 				gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				
 				gui.setSize(500, 500);
 				gui.setVisible(true);
 				gui.setTitle("Gift list");

@@ -32,6 +32,7 @@ public class Selection extends JFrame {
 				}		
 		
 		table = new JTable (data, columnNames);
+		table.getColumnModel().getColumn(0).setPreferredWidth(270);
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
 		
