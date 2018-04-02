@@ -45,7 +45,15 @@ public class StartUP {
 		
 		JButton btnReserve = new JButton("Reserve");
 		btnReserve.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
+
+				ReserveDate s = new ReserveDate();
+				s.setVisible(true);	
+				ReserveDate gui = new ReserveDate();
+				gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				gui.setSize(1000, 600);
+				gui.setVisible(true);
+				gui.setTitle("Reserve Date");
 			}
 		});
 		btnReserve.setBounds(10, 11, 89, 23);
