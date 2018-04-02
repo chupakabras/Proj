@@ -4,7 +4,7 @@ public class ReadAndStoreReserved{
 	private int rows;
 	public ReservedBean[] store() {
 		
-		ReadFile r = new ReadFile();
+		ReadReserved r = new ReadReserved();
 		r.openFile();
 		int rows = r.getNumberOfRows();
 		this.rows = rows;
