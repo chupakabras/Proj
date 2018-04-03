@@ -11,6 +11,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import javafx.application.Application;
+
 public class ReserveDate extends JFrame {
 	
 	ReadAndStoreReserved kek = new ReadAndStoreReserved();
@@ -40,10 +42,11 @@ public class ReserveDate extends JFrame {
 
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
+				String[] args = new String[1];
 				if (! model.isSelectionEmpty())
 				{
 					int selectedRow = model.getMinSelectionIndex();
-					JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is selected");
+					Application.launch(DatePickerTest.class, args);
 					
 				}
 			}
