@@ -32,7 +32,7 @@ public class Main {
 	//	Interface usr = new Interface();
 	//	usr.setName();
 		//System.out.println(usr.getName());
-		//Application.launch(DatePickerTest.class, args);
+		Application.launch(DatePickerTest.class, args);
 		
 		//System.out.println(a);
 

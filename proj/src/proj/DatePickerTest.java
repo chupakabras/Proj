@@ -3,8 +3,11 @@ package proj;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -67,5 +70,16 @@ public class DatePickerTest extends Application {
         gridPane.add(checkInDatePicker, 0, 1);
         vbox.getChildren().add(gridPane);
         checkInDatePicker.requestFocus();
+        
+        Button button = new Button("Check");
+		vbox.getChildren().add(button);
+		
+		button.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				LocalDate date = checkInDatePicker.getValue();
+				System.out.println(date);
+			}
+		});
     }
 }
