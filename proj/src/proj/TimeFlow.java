@@ -8,7 +8,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TimeFlow {
-
+	private DateBean date = new DateBean();
+	
 	private JFrame frmTimeControl;
 
 	/**
@@ -44,9 +45,15 @@ public class TimeFlow {
 		frmTimeControl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTimeControl.getContentPane().setLayout(null);
 		
+		ReadAndStoreDate kek = new ReadAndStoreDate();
+		DateBean date = kek.store();
+		this.date = date;
+		
 		JButton btnNewButton = new JButton("1 day back");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				System.out.println(date.toString());
 				
 			}
 		});
