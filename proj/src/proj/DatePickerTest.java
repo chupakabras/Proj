@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
  
 public class DatePickerTest extends Application {
- 
+	private String date;
     private Stage stage;
     private DatePicker checkInDatePicker;
     private final String pattern = "yyyy-MM-dd";
@@ -78,7 +78,9 @@ public class DatePickerTest extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 				LocalDate date = checkInDatePicker.getValue();
-				System.out.println(date);
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+				String dat = date.format(formatter);
+				System.out.println(dat);
 			}
 		});
     }
