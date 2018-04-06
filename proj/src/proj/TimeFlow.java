@@ -43,7 +43,7 @@ public class TimeFlow {
 	private void initialize() {
 		frmTimeControl = new JFrame();
 		frmTimeControl.setTitle("Time control");
-		frmTimeControl.setBounds(100, 100, 289, 145);
+		frmTimeControl.setBounds(100, 100, 314, 153);
 		frmTimeControl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTimeControl.getContentPane().setLayout(null);
 		frmTimeControl.setResizable(false);
@@ -84,7 +84,7 @@ public class TimeFlow {
 				System.out.println(date.toString());
 			}
 		});
-		btnNewButton.setBounds(10, 11, 101, 34);
+		btnNewButton.setBounds(10, 11, 130, 39);
 		frmTimeControl.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_2 = new JButton("1 month back");
@@ -110,7 +110,7 @@ public class TimeFlow {
 				System.out.println(date.toString());
 				}
 		});
-		btnNewButton_2.setBounds(10, 56, 101, 39);
+		btnNewButton_2.setBounds(10, 61, 130, 39);
 		frmTimeControl.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("1 day forward");
@@ -147,7 +147,7 @@ public class TimeFlow {
 				}
 		
 		});
-		btnNewButton_3.setBounds(150, 11, 113, 34);
+		btnNewButton_3.setBounds(150, 11, 130, 39);
 		frmTimeControl.getContentPane().add(btnNewButton_3);
 		
 		JButton btnNewButton_5 = new JButton("1 month forward");
@@ -173,7 +173,7 @@ public class TimeFlow {
 				System.out.println(date.toString());
 			}
 		});
-		btnNewButton_5.setBounds(150, 56, 113, 39);
+		btnNewButton_5.setBounds(150, 61, 130, 39);
 		frmTimeControl.getContentPane().add(btnNewButton_5);
 	}
 	
