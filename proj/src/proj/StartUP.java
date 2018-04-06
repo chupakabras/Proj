@@ -26,6 +26,7 @@ public class StartUP {
 				}
 			}
 		});
+		
 	}
 
 	/**
@@ -33,6 +34,17 @@ public class StartUP {
 	 */
 	public StartUP() {
 		initialize();
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TimeFlow window = new TimeFlow();
+					window.frmTimeControl.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	/**
