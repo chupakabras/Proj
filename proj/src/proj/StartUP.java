@@ -27,13 +27,6 @@ public class StartUP {
 			}
 		});
 		
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public StartUP() {
-		initialize();
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -48,6 +41,13 @@ public class StartUP {
 	}
 
 	/**
+	 * Create the application.
+	 */
+	public StartUP() {
+		initialize();
+	}
+
+	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
@@ -55,6 +55,8 @@ public class StartUP {
 		frame.setBounds(100, 100, 223, 87);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
 		
 		JButton btnReserve = new JButton("Reserve");
 		btnReserve.addActionListener(new ActionListener() {
@@ -68,6 +70,7 @@ public class StartUP {
 				gui.setSize(500, 500);
 				gui.setVisible(true);
 				gui.setTitle("Reserve Date");
+				gui.setResizable(false);
 				
 			}
 		});
@@ -84,7 +87,7 @@ public class StartUP {
 				
 				Selection gui = new Selection();
 				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-				
+				gui.setResizable(false);
 				gui.setSize(500, 500);
 				gui.setVisible(true);
 				gui.setTitle("Gift list");

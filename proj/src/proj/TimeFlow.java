@@ -46,6 +46,7 @@ public class TimeFlow {
 		frmTimeControl.setBounds(100, 100, 289, 145);
 		frmTimeControl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTimeControl.getContentPane().setLayout(null);
+		frmTimeControl.setResizable(false);
 		
 		ReadAndStoreDate kek = new ReadAndStoreDate();
 		DateBean date = kek.store();
