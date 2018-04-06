@@ -52,7 +52,7 @@ public class StartUP {
 				s.setVisible(true);	
 				*/
 				ReserveDate gui = new ReserveDate();
-			//	gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 				gui.setSize(500, 500);
 				gui.setVisible(true);
 				gui.setTitle("Reserve Date");
