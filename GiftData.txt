@@ -1,4 +1,4 @@
-Tango_dance_lesson_outside 4-8 49 1
+Tango_dance_lesson_outside 4-8 48 2
 Beginner_skiing_lesson 12-2 11 1
 Jump_with_the_parashute 6-9 0 2
 Romantic_dinner_for_two_in_italian_retaurant 1-12 69 0

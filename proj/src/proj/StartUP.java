@@ -41,7 +41,7 @@ public class StartUP {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 223, 87);
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnReserve = new JButton("Reserve");
@@ -71,7 +71,7 @@ public class StartUP {
 				*/
 				
 				Selection gui = new Selection();
-			//	gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 				
 				gui.setSize(500, 500);
 				gui.setVisible(true);

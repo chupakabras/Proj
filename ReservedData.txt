@@ -1,3 +1,4 @@
 Jump_with_the_parashute Click_to_select_date
 Tango_dance_lesson_outside Click_to_select_date
 Beginner_skiing_lesson Click_to_select_date
+Tango_dance_lesson_outside Click_to_select_date
