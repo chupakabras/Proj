@@ -1,4 +1,4 @@
-Final program functionality
+ Final program functionality
 
 Program creates online gift shop where clients can buy and order different gifts.
 Every gift is limited, program shows how many gifts can be bought and how many already left.

@@ -30,7 +30,7 @@ public class DatePicker extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jButton_Add = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         jButton_Add.setText("Add");
         jButton_Add.addActionListener(new java.awt.event.ActionListener() {
