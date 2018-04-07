@@ -39,7 +39,7 @@ public class Selection extends JFrame {
 		ListSelectionModel model = table.getSelectionModel();
 		model.addListSelectionListener(new ListSelectionListener() {
 			
-
+//
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				if (! model.isSelectionEmpty())
