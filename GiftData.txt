@@ -17,4 +17,4 @@ Ticket_to_Local_Zoo 6-9 20 0
 Trip_Around_Lithuania 6-9 28 0
 Scuba_Diving_in_Red_Sea 4-10 5 0
 Bungee_Jumping 4-9 10 0
-One_Way_Ticket_to_the_Moon 1-12 1 0
+One_Way_Ticket_to_the_Moon 1-12 0 1
