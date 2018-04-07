@@ -50,7 +50,6 @@ public class Selection extends JFrame {
 					if (i%2==0) {
 					DatePicker.main(args);
 					}
-					System.out.println(i);
 					i++;
 					if (gift[selectedRow].getRemaining()>0){
 					//JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is selected");
