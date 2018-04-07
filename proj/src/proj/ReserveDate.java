@@ -52,6 +52,13 @@ public class ReserveDate extends JFrame {
 			}
 			
 		});
+		
+	}
+	public static String setReturnValue(String dat) {
+			
+		System.out.println(dat);
+		return dat;
+		
 	}
 	
 }

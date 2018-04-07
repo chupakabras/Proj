@@ -74,12 +74,14 @@ public class DatePickerTest extends Application {
 		vbox.getChildren().add(button);
 		
 		button.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
+
 			public void handle(ActionEvent event) {
 				LocalDate date = checkInDatePicker.getValue();
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy L dd");
 				String dat = date.format(formatter);
-				System.out.println(dat);
+				 ReserveDate.setReturnValue(dat);
+				stage.close();	
+			//	System.out.println(dat);
 			}
 		});
     }

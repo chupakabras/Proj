@@ -52,7 +52,7 @@ public class DatePicker {
 		});
 		dateChooser.setBounds(10, 11, 130, 20);
 		frmSelectDate.getContentPane().add(dateChooser);
-		
+		System.out.println(dateChooser);
 		JButton btnConfirm = new JButton("Confirm");
 		btnConfirm.setBounds(142, 11, 89, 23);
 		frmSelectDate.getContentPane().add(btnConfirm);
