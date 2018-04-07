@@ -16,7 +16,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
  * @author 1BestCsharp
  */
 public class JDateChooser extends javax.swing.JFrame {
-
+	private String date;
     /**
      * Creates new form Java_JTable_And_JDateChooser
      */
@@ -67,8 +67,8 @@ public class JDateChooser extends javax.swing.JFrame {
             try{
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String theDate = dateFormat.format(jDateChooser1.getDate());
-            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-            model.addRow(new Object[]{theDate});
+            date = theDate;
+            System.out.println(getDate());
             }
             catch(Exception ex)
             {
@@ -111,7 +111,9 @@ public class JDateChooser extends javax.swing.JFrame {
                 }
             });
         }
-
+        public String getDate() {
+        	return date;
+        }
         // Variables declaration - do not modify                     
         private javax.swing.JButton jButton_Add;
         private com.toedter.calendar.JDateChooser jDateChooser1;
