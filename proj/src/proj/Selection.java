@@ -45,6 +45,7 @@ public class Selection extends JFrame {
 				if (! model.isSelectionEmpty())
 				{
 					int selectedRow = model.getMinSelectionIndex();
+					if (gift[selectedRow].getRemaining()>0) {
 					JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is selected");
 					gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
 					gift[selectedRow].setRemaining(gift[selectedRow].getRemaining() - 1);
@@ -52,6 +53,10 @@ public class Selection extends JFrame {
 					edit.writeFile(rows.getNumberOfRows(), gift);
 					EditReservedData rowadd = new EditReservedData();
 					rowadd.addRow(selectedRow, gift);
+					}
+					else {
+						JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is not avalaible");
+					}
 				}
 			}
 			
