@@ -26,7 +26,7 @@ public class DatePicker extends javax.swing.JFrame {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
-    private void initComponents() {
+    public void initComponents() {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jButton_Add = new javax.swing.JButton();
 
