@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="proj/src"/>
-	<classpathentry kind="lib" path="C:/Users/Matas/Downloads/jcalendar-1.4.jar/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="E:/Universitetas/Objektinis JAVA/jcalendar-1.4.jar/jcalendar-1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
