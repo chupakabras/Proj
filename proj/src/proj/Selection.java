@@ -16,8 +16,8 @@ public class Selection extends JFrame {
 	ReadAndStore kek = new ReadAndStore();
 	GiftBean[] gift = kek.store();
 	ReadFile rows = new ReadFile();
+	private int i = 0;
 	
-
 	//String strI = Integer.toString(i);
 	JTable table;
 	public Selection () {
@@ -42,13 +42,17 @@ public class Selection extends JFrame {
 
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
+
 				String[] args = new String[1];
 				if (! model.isSelectionEmpty())
 				{
 					int selectedRow = model.getMinSelectionIndex();
+					if (i%2==0) {
 					DatePicker.main(args);
-					
-				if (gift[selectedRow].getRemaining()>0){
+					}
+					System.out.println(i);
+					i++;
+					if (gift[selectedRow].getRemaining()>0){
 					//JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is selected");
 					gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
 					gift[selectedRow].setRemaining(gift[selectedRow].getRemaining() - 1);
@@ -59,11 +63,11 @@ public class Selection extends JFrame {
 					}
 				else {
 					JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is not available");
+					i=0;
 					}
 				}
 			}
-			
+
 		});
 	}
-	
 }
