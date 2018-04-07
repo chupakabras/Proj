@@ -42,13 +42,16 @@ public class Selection extends JFrame {
 
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-
+				DatePicker d = new DatePicker();
 				String[] args = new String[1];
 				if (! model.isSelectionEmpty())
 				{
 					int selectedRow = model.getMinSelectionIndex();
 					if (i%2==0) {
-					DatePicker.main(args);
+					
+					d.main(args);
+
+					//DatePicker.main(args);
 					}
 					i++;
 					if (gift[selectedRow].getRemaining()>0){
@@ -58,7 +61,7 @@ public class Selection extends JFrame {
 					EditGiftData edit = new EditGiftData();
 					edit.writeFile(rows.getNumberOfRows(), gift);
 					EditReservedData rowadd = new EditReservedData();
-					rowadd.addRow(selectedRow, gift);
+					rowadd.addRow(selectedRow, gift, d.getDate());
 					}
 				else {
 					JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is not available");

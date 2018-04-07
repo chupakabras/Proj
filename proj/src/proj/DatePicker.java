@@ -68,7 +68,6 @@ public class DatePicker extends javax.swing.JFrame {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String theDate = dateFormat.format(jDateChooser1.getDate());
             date = theDate;
-            System.out.println(getDate());
             }
             catch(Exception ex)
             {
