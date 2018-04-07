@@ -44,22 +44,23 @@ public class Selection extends JFrame {
 			public void valueChanged(ListSelectionEvent e) {
 				if (! model.isSelectionEmpty())
 				{
+					if (! e.getValueIsAdjusting()) {
 					int selectedRow = model.getMinSelectionIndex();
 					if (gift[selectedRow].getRemaining()>0) {
-					JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is selected");
 					gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
 					gift[selectedRow].setRemaining(gift[selectedRow].getRemaining() - 1);
 					EditGiftData edit = new EditGiftData();
 					edit.writeFile(rows.getNumberOfRows(), gift);
 					EditReservedData rowadd = new EditReservedData();
 					rowadd.addRow(selectedRow, gift);
+					System.out.println("Hans");
 					}
 					else {
 						JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is not avalaible");
 					}
 				}
 			}
-			
+		}
 		});
 	}
 	
