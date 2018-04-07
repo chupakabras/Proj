@@ -15,12 +15,12 @@ import javax.swing.LayoutStyle.ComponentPlacement;
  *
  * @author 1BestCsharp
  */
-public class JDateChooser extends javax.swing.JFrame {
+public class DatePicker extends javax.swing.JFrame {
 	private String date;
     /**
      * Creates new form Java_JTable_And_JDateChooser
      */
-    public JDateChooser() {
+    public DatePicker() {
         initComponents();
     }
 
@@ -94,20 +94,20 @@ public class JDateChooser extends javax.swing.JFrame {
                     }
                 }
             } catch (ClassNotFoundException ex) {
-                java.util.logging.Logger.getLogger(JDateChooser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(DatePicker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             } catch (InstantiationException ex) {
-                java.util.logging.Logger.getLogger(JDateChooser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(DatePicker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             } catch (IllegalAccessException ex) {
-                java.util.logging.Logger.getLogger(JDateChooser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(DatePicker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-                java.util.logging.Logger.getLogger(JDateChooser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(DatePicker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
             //</editor-fold>
 
             /* Create and display the form */
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    new JDateChooser().setVisible(true);
+                    new DatePicker().setVisible(true);
                 }
             });
         }

@@ -46,7 +46,7 @@ public class ReserveDate extends JFrame {
 				if (! model.isSelectionEmpty())
 				{
 					int selectedRow = model.getMinSelectionIndex();
-					Application.launch(DatePickerTest.class, args);
+					Application.launch(DatePicker.class, args);
 					
 				}
 			}
