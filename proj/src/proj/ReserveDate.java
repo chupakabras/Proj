@@ -40,14 +40,13 @@ public class ReserveDate extends JFrame {
 		model.addListSelectionListener(new ListSelectionListener() {
 			
 
-			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				String[] args = new String[1];
 				if (! model.isSelectionEmpty())
 				{
 					int selectedRow = model.getMinSelectionIndex();
 					
-					DatePicker.main(args); 
+					//DatePicker.main(args); 
 					
 				}
 			}

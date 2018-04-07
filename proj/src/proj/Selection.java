@@ -42,12 +42,14 @@ public class Selection extends JFrame {
 
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
+				String[] args = new String[1];
 				if (! model.isSelectionEmpty())
 				{
 					int selectedRow = model.getMinSelectionIndex();
+					DatePicker.main(args);
 					
 				if (gift[selectedRow].getRemaining()>0){
-					JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is selected");
+					//JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is selected");
 					gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
 					gift[selectedRow].setRemaining(gift[selectedRow].getRemaining() - 1);
 					EditGiftData edit = new EditGiftData();
