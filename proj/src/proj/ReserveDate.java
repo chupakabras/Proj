@@ -46,7 +46,7 @@ public class ReserveDate extends JFrame {
 				if (! model.isSelectionEmpty())
 				{
 					int selectedRow = model.getMinSelectionIndex();
-					Application.launch(DatePicker.class, args);
+					DatePicker.main(args);
 					
 				}
 			}
@@ -54,11 +54,6 @@ public class ReserveDate extends JFrame {
 		});
 		
 	}
-	public static String setReturnValue(String dat) {
-			
-		System.out.println(dat);
-		return dat;
-		
-	}
+
 	
 }
