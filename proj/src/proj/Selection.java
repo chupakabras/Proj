@@ -1,8 +1,12 @@
 package proj;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.*;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -12,6 +16,31 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 public class Selection extends JFrame {
+	
+	public static void main(String[] args) {		 
+		 
+		JButton btnBuy = new JButton("Buy");
+		btnBuy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				/*
+				Selection s = new Selection();
+				s.setVisible(true);	
+				*/
+				
+				Selection gui = new Selection();
+				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+				gui.setResizable(false);
+				gui.setSize(500, 500);
+				gui.setVisible(true);
+				gui.setTitle("Gift list");
+				
+			}
+		});
+		btnBuy.setBounds(109, 11, 89, 23);
+		//frame.getContentPane().add(btnBuy);
+	
+
+	}	
 	
 	ReadAndStore kek = new ReadAndStore();
 	GiftBean[] gift = kek.store();
