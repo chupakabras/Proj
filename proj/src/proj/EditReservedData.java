@@ -37,7 +37,7 @@ public class EditReservedData {
 			    BufferedWriter bw = new BufferedWriter(fw);
 			    PrintWriter out = new PrintWriter(bw))
 			{
-				out.println(gift[row].getName().replace(' ', '_') + " ");
+				out.println(gift[row].getName().replace(' ', '_') + " Click_to_select_date");
 				
 			} catch (IOException e) {
 			    //exception handling left as an exercise for the reader
