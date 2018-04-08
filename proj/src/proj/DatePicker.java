@@ -28,8 +28,7 @@ public class DatePicker extends javax.swing.JFrame {
     public DatePicker(int selectedRow) {
     	setTitle("Date picker");
     	setType(Type.NORMAL);
-    	setSize(100,50);
-    	//setResizable(false);
+    	setResizable(false);
         initComponents(selectedRow);
     }
 
@@ -54,26 +53,24 @@ public class DatePicker extends javax.swing.JFrame {
         	layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(layout.createSequentialGroup()
         			.addContainerGap()
-        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
-        				.addGroup(layout.createSequentialGroup()
-        					.addComponent(jDateChooser1, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
-        					.addContainerGap(199, Short.MAX_VALUE))
-        				.addGroup(layout.createSequentialGroup()
-        					.addComponent(jButton_Add, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        					.addGap(199))))
+        			.addComponent(jDateChooser1, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(jButton_Add, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        			.addContainerGap())
         );
         layout.setVerticalGroup(
         	layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(layout.createSequentialGroup()
         			.addContainerGap()
-        			.addComponent(jDateChooser1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addComponent(jButton_Add, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap(220, Short.MAX_VALUE))
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(jButton_Add)
+        				.addComponent(jDateChooser1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addContainerGap(27, Short.MAX_VALUE))
         );
         getContentPane().setLayout(layout);
-
-            pack();
+        setLocation(500, 333);
+        setSize(320,90);
+           // pack();
         }// </editor-fold>                        
 
         private void jButton_AddActionPerformed(java.awt.event.ActionEvent evt) {                                            
@@ -89,6 +86,7 @@ public class DatePicker extends javax.swing.JFrame {
 			edit.writeFile(rows.getNumberOfRows(), gift);
 			EditReservedData rowadd = new EditReservedData();
 			rowadd.addRow(getRow(), gift, date);
+			setVisible(false);
             }
             catch(Exception ex)
             {
