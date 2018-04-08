@@ -9,7 +9,7 @@ Monthly_Membership_for_Rock_Climbing_gym 1-12 29 1
 Escape_Room_Game 1-12 40 5
 30_Hours_English_Course_for_Beginners 1-12 9 1
 Riding_Horses_in_the_Park 5-8 28 2
-Course_to_Ice_Fishing 1-2 15 0
+Course_to_Ice_Fishing 1-2 14 1
 Romantic_Stargazing_in_Wilderness_for_Two 4-8 2 2
 Bowling_Game_in_Appollo_Club 1-12 20 0
 Ticket_to_Roller_Coaster_Park 4-9 28 2

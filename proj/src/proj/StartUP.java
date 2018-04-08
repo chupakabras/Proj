@@ -52,13 +52,13 @@ public class StartUP {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 223, 87);
+		frame.setBounds(100, 100, 282, 83);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		
-		JButton btnReserve = new JButton("Reserved");
+		JButton btnReserve = new JButton("Your Reservations");
 		btnReserve.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent args0) {
 				/*
@@ -74,10 +74,10 @@ public class StartUP {
 				
 			}
 		});
-		btnReserve.setBounds(10, 11, 89, 23);
+		btnReserve.setBounds(10, 11, 147, 23);
 		frame.getContentPane().add(btnReserve);
 		
-		JButton btnBuy = new JButton("Buy");
+		JButton btnBuy = new JButton("Gift Shop");
 		btnBuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/*
@@ -94,7 +94,7 @@ public class StartUP {
 				
 			}
 		});
-		btnBuy.setBounds(109, 11, 89, 23);
+		btnBuy.setBounds(167, 11, 89, 23);
 		frame.getContentPane().add(btnBuy);
 	}
 }
