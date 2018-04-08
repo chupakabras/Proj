@@ -1,2 +1,6 @@
 Jump_with_the_parashute Click_to_select_date
 One_Way_Ticket_to_the_Moon Click_to_select_date
+Bungee_Jumping 2018-04-12
+Trip_Around_Lithuania 2018-04-26
+Ticket_to_Trampoline_Park 2018-04-20
+Flying_with_Hot_Air_Baloon 2018-03-06
