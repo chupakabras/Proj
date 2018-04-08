@@ -8,4 +8,4 @@ Also, window with time simulation appears, so user could control time flow
 If "Gift Shop" is selected, table with various gifts appears.
 User can buy a gift by clicking on it, then calendar shows up and user has to select the date (later he can change it).
 If "Your Reservations" is selected, table with user's orders appears.
-By clicking on gift user can change reservation time, if gift is still valid (after purchase passed less than 30 days)
+By clicking on gift user can change reservation time, if gift is still valid (after purchase passed less than 30 days).
