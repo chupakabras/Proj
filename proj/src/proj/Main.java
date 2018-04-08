@@ -7,7 +7,5 @@ public class Main {
 		 StartUP start = new StartUP();
 		 start.main(args);
 
-		// Application.launch(DatePickerTest.class, args);
-
 	}	
 }

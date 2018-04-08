@@ -58,7 +58,7 @@ public class StartUP {
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		
-		JButton btnReserve = new JButton("Reserve");
+		JButton btnReserve = new JButton("Reserved");
 		btnReserve.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent args0) {
 				/*
