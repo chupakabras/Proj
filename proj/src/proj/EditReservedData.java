@@ -32,12 +32,12 @@ public class EditReservedData {
 			}		
 	}
 	
-	public void addRow(int row, GiftBean[] gift) {
+	public void addRow(int row, GiftBean[] gift, String date) {
 		try(FileWriter fw = new FileWriter("ReservedData.txt", true);
 			    BufferedWriter bw = new BufferedWriter(fw);
 			    PrintWriter out = new PrintWriter(bw))
 			{
-				out.println(gift[row].getName().replace(' ', '_') + " Click_to_select_date");
+				out.println(gift[row].getName().replace(' ', '_') + " " + date);
 				
 			} catch (IOException e) {
 			    //exception handling left as an exercise for the reader
