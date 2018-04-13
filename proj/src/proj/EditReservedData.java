@@ -6,7 +6,6 @@ import java.util.*;
 
 public class EditReservedData {
 	private Writer x;
-	TimeFlow time = new TimeFlow();
 	
 	public void writeFile(int row, ReservedBean[] gift) {
 		try(FileWriter fw = new FileWriter("ReservedData.txt", true);
@@ -30,7 +29,7 @@ public class EditReservedData {
 			    PrintWriter out = new PrintWriter(bw))
 			{
 			
-				out.println(gift[row].getName().replace(' ', '_') + " " + date + " " + time.getDate());
+				out.println(gift[row].getName().replace(' ', '_') + " " + date + " " );
 				
 			} catch (IOException e) {
 			    //exception handling left as an exercise for the reader

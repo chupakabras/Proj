@@ -89,7 +89,7 @@ public class DatePicker {
 										public void itemStateChanged(ItemEvent event) {
 											if(event.getStateChange() == ItemEvent.SELECTED) { 
 												setMonth((String)comboBox2.getSelectedItem());
-												  if(getMonth().equals("January") || getMonth().equals("March") || getMonth().equals("May") || getMonth().equals("August") || getMonth().equals("October") || getMonth().equals("December")) {
+												  if(getMonth().equals("January") || getMonth().equals("March") || getMonth().equals("May") || getMonth().equals("August") || getMonth().equals("October") || getMonth().equals("December") || getMonth().equals("June")) {
 													comboBox3.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 													comboBox3.setToolTipText("Day");
 													comboBox3.setBounds(210, 38, 50, 22);
