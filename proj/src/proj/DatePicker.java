@@ -14,10 +14,13 @@ import javax.swing.JLabel;
 
 public class DatePicker {
 	
+
 	private int year;
 	private String month;
 	private int day;
 	private String date;
+	private int row;
+	private int selectedRow;
 	
 
 	JFrame frame;
@@ -25,11 +28,12 @@ public class DatePicker {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void main(int selectedRow) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DatePicker window = new DatePicker();
+					DatePicker window = new DatePicker(selectedRow);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,14 +45,14 @@ public class DatePicker {
 	/**
 	 * Create the application.
 	 */
-	public DatePicker() {
-		initialize();
+	public DatePicker(int selectedRow) {
+		initialize(selectedRow);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(int selectedRow) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 292, 146);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,8 +101,19 @@ public class DatePicker {
 													btnSelectThisDate.addActionListener(new ActionListener() {
 														public void actionPerformed(ActionEvent arg0) {
 															setDate();
+															
+															ReadAndStore kek = new ReadAndStore();
+															GiftBean[] gift = kek.store();
+															ReadFile rows = new ReadFile();
+															EditGiftData edit = new EditGiftData();
+															gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
+															gift[row].setRemaining(gift[row].getRemaining() - 1);
+															edit.writeFile(rows.getNumberOfRows(), gift);
+															EditReservedData rowadd = new EditReservedData();
+															rowadd.addRow(selectedRow, gift, getDate());
+															System.out.println(selectedRow);
 															frame.setVisible(false);
-															System.out.println(getDate());
+															
 														}
 													});
 													btnSelectThisDate.setBounds(77, 71, 130, 23);
@@ -118,8 +133,20 @@ public class DatePicker {
 													btnSelectThisDate.addActionListener(new ActionListener() {
 														public void actionPerformed(ActionEvent arg0) {
 															setDate();
+															
+															ReadAndStore kek = new ReadAndStore();
+															GiftBean[] gift = kek.store();
+															ReadFile rows = new ReadFile();
+															EditGiftData edit = new EditGiftData();
+														
+															gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
+															gift[row].setRemaining(gift[row].getRemaining() - 1);
+															edit.writeFile(rows.getNumberOfRows(), gift);
+															EditReservedData rowadd = new EditReservedData();
+															rowadd.addRow(selectedRow, gift, getDate());
+															System.out.println(selectedRow);
 															frame.setVisible(false);
-															System.out.println(getDate());
+
 														}
 													});
 													btnSelectThisDate.setBounds(77, 71, 130, 23);
@@ -132,21 +159,33 @@ public class DatePicker {
 													comboBox3.setToolTipText("Day");
 													comboBox3.setBounds(210, 38, 50, 22);
 													frame.getContentPane().add(comboBox3);
-													if(event.getStateChange() == ItemEvent.SELECTED) 
+													if(event.getStateChange() == ItemEvent.SELECTED) {
 														setDay(Integer.parseInt((String)comboBox3.getSelectedItem()));
 													
 													JButton btnSelectThisDate = new JButton("Select this date");
 													btnSelectThisDate.addActionListener(new ActionListener() {
 														public void actionPerformed(ActionEvent arg0) {
 															setDate();
+															
+															ReadAndStore kek = new ReadAndStore();
+															GiftBean[] gift = kek.store();
+															ReadFile rows = new ReadFile();
+															EditGiftData edit = new EditGiftData();
+															
+															gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
+															gift[row].setRemaining(gift[row].getRemaining() - 1);
+															edit.writeFile(rows.getNumberOfRows(), gift);
+															EditReservedData rowadd = new EditReservedData();
+															rowadd.addRow(selectedRow, gift, getDate());
+															System.out.println(selectedRow);
 															frame.setVisible(false);
-															System.out.println(getDate());
 														}
 													});
 													btnSelectThisDate.setBounds(77, 71, 130, 23);
 													frame.getContentPane().add(btnSelectThisDate);
 													frame.repaint();
 													
+												  }
 												  }
 											}
 									}
@@ -185,4 +224,9 @@ public class DatePicker {
 	private String getDate() {
 		return date;
 	}
+	
+	public void setRow(int row) {
+    	this.row = row;
+    }
+
 }

@@ -47,9 +47,8 @@ public class Selection extends JFrame {
 					if (! e.getValueIsAdjusting()) {
 					int selectedRow = model.getMinSelectionIndex();
 					if (gift[selectedRow].getRemaining()>0) {
-					String[] args = new String[0];
-					DatePicker d = new DatePicker();
-					d.main(args);
+					DatePicker d = new DatePicker(selectedRow);
+					d.main(selectedRow);
 					/*
 					EditGiftData edit = new EditGiftData();
 					edit.writeFile(rows.getNumberOfRows(), gift);

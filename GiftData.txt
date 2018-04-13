@@ -1,4 +1,4 @@
-Tango_Dance_Lesson_Outside 4-8 40 0
+Tango_Dance_Lesson_Outside 4-8 32 7
 Skiing_Lesson_for_Beginners 12-2 12 0
 Jump_with_the_Parachute 6-9 6 0
 Romantic_Dinner_for_Two_in_Italian_Restaurant 1-12 69 0
@@ -15,6 +15,6 @@ Bowling_Game_in_Appollo_Club 1-12 20 0
 Ticket_to_Roller_Coaster_Park 4-9 25 0
 Ticket_to_Local_Zoo 6-9 20 0
 Trip_Around_Lithuania 6-9 28 0
-Scuba_Diving_in_Red_Sea 4-10 5 0
+Scuba_Diving_in_Red_Sea 4-10 5 1
 Bungee_Jumping 4-9 10 0
-One_Way_Ticket_to_the_Moon 1-12 0 1 
+One_Way_Ticket_to_the_Moon 1-12 0 1
