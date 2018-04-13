@@ -1,5 +1,5 @@
 package proj;
-
+//
 public class GiftBean {
 	
 	private String name;
