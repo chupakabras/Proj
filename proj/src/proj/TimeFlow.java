@@ -5,12 +5,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.Formatter;
+import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import javax.swing.JPasswordField;
 
 public class TimeFlow {
 	private DateBean date = new DateBean();
+	private Formatter x;
 	
 	JFrame frmTimeControl;
 
@@ -51,6 +55,9 @@ public class TimeFlow {
 		ReadAndStoreDate kek = new ReadAndStoreDate();
 		DateBean date = kek.store();
 		this.date = date;
+		openFile();
+		addDate();
+		closeFile();
 		
 		JButton btnNewButton_3 = new JButton("1 day forward");
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -82,7 +89,12 @@ public class TimeFlow {
 						else
 							date.setDay(date.getDay() + 1);
 
+					openFile();
+					addDate();
+					closeFile();
 					System.out.println(date.toString());
+					
+					
 				}
 		
 		});
@@ -108,7 +120,9 @@ public class TimeFlow {
 						date.setDay(29);
 					}
 				}
-				
+				openFile();
+				addDate();
+				closeFile();
 				System.out.println(date.toString());
 			}
 		});
@@ -118,5 +132,22 @@ public class TimeFlow {
 	
 	public String getDate() {
 		return date.toString();
+	}
+	
+	public void openFile() {
+		try {
+			x = new Formatter(new File("CurrentDate.txt"));
+		}
+		catch(Exception e) {
+			System.out.println("An error has occured while trying to read data file.");
+		}
+	}
+	
+	public void closeFile() {
+		x.close();
+	}
+	
+	public void addDate() {
+		x.format("%s", getDate());
 	}
 }

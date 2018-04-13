@@ -28,7 +28,7 @@ public class DateBean {
 	}
 	
 	public String toString() {
-		return (getYear() + " " + getMonth() + " " + getDay());
+		return (getYear() + "-" + getMonth() + "-" + getDay());
 	}
 	
 }

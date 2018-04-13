@@ -5,7 +5,7 @@ import java.lang.*;
 import java.util.*;
 
 public class EditReservedData {
-	private Writer x;
+	ReadCurrentDate currentDate = new ReadCurrentDate();
 	
 	public void writeFile(int row, ReservedBean[] gift) {
 		try(FileWriter fw = new FileWriter("ReservedData.txt", true);
@@ -28,8 +28,10 @@ public class EditReservedData {
 			    BufferedWriter bw = new BufferedWriter(fw);
 			    PrintWriter out = new PrintWriter(bw))
 			{
-			
-				out.println(gift[row].getName().replace(' ', '_') + " " + date + " " );
+				currentDate.openFile();
+				currentDate.readFile();
+				currentDate.closeFile();
+				out.println(gift[row].getName().replace(' ', '_') + " " + date + " " + currentDate.getCurrentDate() );
 				
 			} catch (IOException e) {
 			    //exception handling left as an exercise for the reader

@@ -20,19 +20,23 @@ public class ReserveDate extends JFrame {
 	ReadReserved rows = new ReadReserved();
 	TimeFlow time = new TimeFlow();
 	
+	private Scanner x;
+	private String date;
 
 	//String strI = Integer.toString(i);
 	JTable table;
 	public ReserveDate () {
+		openFile();
 		setLayout(new FlowLayout());
 		String[] columnNames = {"Gift Name", "Reserved for", "Bought on"};
 			String[][] data = new String[rows.getNumberOfRows()][4];
 						for (int i=0; i<rows.getNumberOfRows(); i++) {
+				readFile();
 				data[i][0] = gift[i].getName();
 				data[i][1] = gift[i].getDate().replace("_", " ");
-				data[i][2] = time.getDate();
+				data[i][2] = date;
 				}		
-		
+		closeFile();
 		table = new JTable (data, columnNames);
 		table.getColumnModel().getColumn(0).setPreferredWidth(270);
 		JScrollPane scrollPane = new JScrollPane(table);
@@ -57,5 +61,23 @@ public class ReserveDate extends JFrame {
 		
 	}
 
+	public void openFile() {
+		 try{
+			 x = new Scanner(new File("ReservedData.txt"));
+		 }
+		 catch (Exception e) {
+			 System.out.println("CurrentDate.txt couldn't be opened");
+		 }
+	 }
+	 
+	 public void readFile() {
+		 x.next();
+		 x.next();
+		 date = x.next();
+	 }
+	 
+	 public void closeFile() {
+		 x.close();
+	 }
 	
 }
