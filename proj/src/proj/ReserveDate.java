@@ -18,17 +18,19 @@ public class ReserveDate extends JFrame {
 	ReadAndStoreReserved kek = new ReadAndStoreReserved();
 	ReservedBean[] gift = kek.store();
 	ReadReserved rows = new ReadReserved();
+	TimeFlow time = new TimeFlow();
 	
 
 	//String strI = Integer.toString(i);
 	JTable table;
 	public ReserveDate () {
 		setLayout(new FlowLayout());
-		String[] columnNames = {"Gift Name", "Reserved for" };
-			String[][] data = new String[rows.getNumberOfRows()][2];
+		String[] columnNames = {"Gift Name", "Reserved for", "Bought on"};
+			String[][] data = new String[rows.getNumberOfRows()][4];
 						for (int i=0; i<rows.getNumberOfRows(); i++) {
 				data[i][0] = gift[i].getName();
 				data[i][1] = gift[i].getDate().replace("_", " ");
+				data[i][2] = time.getDate();
 				}		
 		
 		table = new JTable (data, columnNames);
