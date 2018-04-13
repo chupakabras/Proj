@@ -74,7 +74,7 @@ public class DatePicker {
 					public void itemStateChanged(ItemEvent event) {
 						if(event.getStateChange() == ItemEvent.SELECTED) 
 							setYear(Integer.parseInt((String)comboBox.getSelectedItem()));
-	
+						
 							comboBox2.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
 							comboBox2.setToolTipText("Month");
 							comboBox2.setBounds(100, 38, 90, 22);
@@ -152,6 +152,7 @@ public class DatePicker {
 									}
 									}
 									);
+							
 				}
 				}
 				);
