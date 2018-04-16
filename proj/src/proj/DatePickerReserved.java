@@ -54,7 +54,7 @@ public class DatePickerReserved {
 	private void initialize(int selectedRow) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 292, 146);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JComboBox comboBox = new JComboBox();

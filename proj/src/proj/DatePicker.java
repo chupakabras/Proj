@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class DatePicker {
 
@@ -21,6 +22,9 @@ public class DatePicker {
 	private String date;
 	private int row;
 	private int selectedRow;
+	
+	ReadAndStore kek = new ReadAndStore();
+	GiftBean[] check = kek.store();
 
 	JFrame frame;
 
@@ -44,9 +48,12 @@ public class DatePicker {
 	/**
 	 * Create the application.
 	 */
+	
 	public DatePicker(int selectedRow) {
+	
 		initialize(selectedRow);
 	}
+
 
 	/**
 	 * Initialize the contents of the frame.
@@ -84,7 +91,10 @@ public class DatePicker {
 				comboBox2.addItemListener(new ItemListener() {
 					public void itemStateChanged(ItemEvent event) {
 						if (event.getStateChange() == ItemEvent.SELECTED) {
+							
+							
 							setMonth((String) comboBox2.getSelectedItem());
+							
 							if (getMonth().equals("January") || getMonth().equals("March") || getMonth().equals("May")
 									|| getMonth().equals("August") || getMonth().equals("October")
 									|| getMonth().equals("December") || getMonth().equals("July")) {
@@ -102,6 +112,47 @@ public class DatePicker {
 									public void actionPerformed(ActionEvent arg0) {
 										setDate();
 
+										if (getMonth().equals("January") &&  check[selectedRow].getFrom() <= 1 && check[selectedRow].getTo() >= 1){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("February") &&  check[selectedRow].getFrom() <= 2 && check[selectedRow].getTo() >= 2){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("March") &&  check[selectedRow].getFrom() <= 3 && check[selectedRow].getTo() >= 3){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("April") &&  check[selectedRow].getFrom() <= 4 && check[selectedRow].getTo() >= 4){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("May") &&  check[selectedRow].getFrom() <= 5 && check[selectedRow].getTo() >= 5){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("June") &&  check[selectedRow].getFrom() <= 6 && check[selectedRow].getTo() >= 6){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("July") &&  check[selectedRow].getFrom() <= 7 && check[selectedRow].getTo() >= 7){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("August") &&  check[selectedRow].getFrom() <= 8 && check[selectedRow].getTo() >= 8){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("September") &&  check[selectedRow].getFrom() <= 9 && check[selectedRow].getTo() >= 9){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("October") &&  check[selectedRow].getFrom() <= 10 && check[selectedRow].getTo() >= 10){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("November") &&  check[selectedRow].getFrom() <= 11 && check[selectedRow].getTo() >= 11){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("December") &&  check[selectedRow].getFrom() <= 12 && check[selectedRow].getTo() >= 12){
+											System.out.println("veikia");
+										}
+										else {
+											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
+											return;
+										}
+										
 										ReadAndStore kek = new ReadAndStore();
 										GiftBean[] gift = kek.store();
 										ReadFile rows = new ReadFile();
@@ -135,6 +186,46 @@ public class DatePicker {
 								btnSelectThisDate.addActionListener(new ActionListener() {
 									public void actionPerformed(ActionEvent arg0) {
 										setDate();
+										if (getMonth().equals("January") &&  check[selectedRow].getFrom() <= 1 && check[selectedRow].getTo() >= 1){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("February") &&  check[selectedRow].getFrom() <= 2 && check[selectedRow].getTo() >= 2){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("March") &&  check[selectedRow].getFrom() <= 3 && check[selectedRow].getTo() >= 3){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("April") &&  check[selectedRow].getFrom() <= 4 && check[selectedRow].getTo() >= 4){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("May") &&  check[selectedRow].getFrom() <= 5 && check[selectedRow].getTo() >= 5){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("June") &&  check[selectedRow].getFrom() <= 6 && check[selectedRow].getTo() >= 6){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("July") &&  check[selectedRow].getFrom() <= 7 && check[selectedRow].getTo() >= 7){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("August") &&  check[selectedRow].getFrom() <= 8 && check[selectedRow].getTo() >= 8){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("September") &&  check[selectedRow].getFrom() <= 9 && check[selectedRow].getTo() >= 9){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("October") &&  check[selectedRow].getFrom() <= 10 && check[selectedRow].getTo() >= 10){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("November") &&  check[selectedRow].getFrom() <= 11 && check[selectedRow].getTo() >= 11){
+											System.out.println("veikia");
+										}
+										if (getMonth().equals("December") &&  check[selectedRow].getFrom() <= 12 && check[selectedRow].getTo() >= 12){
+											System.out.println("veikia");
+										}
+										else {
+											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
+											return;
+										}
 
 										ReadAndStore kek = new ReadAndStore();
 										GiftBean[] gift = kek.store();
@@ -169,6 +260,47 @@ public class DatePicker {
 									btnSelectThisDate.addActionListener(new ActionListener() {
 										public void actionPerformed(ActionEvent arg0) {
 											setDate();
+											if (getMonth().equals("January") &&  check[selectedRow].getFrom() <= 1 && check[selectedRow].getTo() >= 1){
+												System.out.println("veikia");
+											}
+											if (getMonth().equals("February") &&  check[selectedRow].getFrom() <= 2 && check[selectedRow].getTo() >= 2){
+												System.out.println("veikia");
+											}
+											if (getMonth().equals("March") &&  check[selectedRow].getFrom() <= 3 && check[selectedRow].getTo() >= 3){
+												System.out.println("veikia");
+											}
+											if (getMonth().equals("April") &&  check[selectedRow].getFrom() <= 4 && check[selectedRow].getTo() >= 4){
+												System.out.println("veikia");
+											}
+											if (getMonth().equals("May") &&  check[selectedRow].getFrom() <= 5 && check[selectedRow].getTo() >= 5){
+												System.out.println("veikia");
+											}
+											if (getMonth().equals("June") &&  check[selectedRow].getFrom() <= 6 && check[selectedRow].getTo() >= 6){
+												System.out.println("veikia");
+											}
+											if (getMonth().equals("July") &&  check[selectedRow].getFrom() <= 7 && check[selectedRow].getTo() >= 7){
+												System.out.println("veikia");
+											}
+											if (getMonth().equals("August") &&  check[selectedRow].getFrom() <= 8 && check[selectedRow].getTo() >= 8){
+												System.out.println("veikia");
+											}
+											if (getMonth().equals("September") &&  check[selectedRow].getFrom() <= 9 && check[selectedRow].getTo() >= 9){
+												System.out.println("veikia");
+											}
+											if (getMonth().equals("October") &&  check[selectedRow].getFrom() <= 10 && check[selectedRow].getTo() >= 10){
+												System.out.println("veikia");
+											}
+											if (getMonth().equals("November") &&  check[selectedRow].getFrom() <= 11 && check[selectedRow].getTo() >= 11){
+												System.out.println("veikia");
+											}
+											if (getMonth().equals("December") &&  check[selectedRow].getFrom() <= 12 && check[selectedRow].getTo() >= 12){
+												System.out.println("veikia");
+											}
+											else {
+												JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
+												return;
+											}
+											
 
 											ReadAndStore kek = new ReadAndStore();
 											GiftBean[] gift = kek.store();
