@@ -20,7 +20,7 @@ public class ReadAndStoreReserved{
 			wordsplit[0] = wordsplit[0].replace("_", " ");
 			gift[i].setName(wordsplit[0]);
 			gift[i].setDate(wordsplit[1]);
-			
+			gift[i].setBDate(wordsplit[2]);
 		}
 		r.closeFile();
 		
