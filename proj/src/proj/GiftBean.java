@@ -6,6 +6,8 @@ public class GiftBean {
 	private String date;
 	private int remaining;
 	private int reserved;
+	private int from;
+	private int to;
 	
 	public String getName() {
 		return name;
@@ -21,6 +23,9 @@ public class GiftBean {
 	
 	public void setDate(String date) {
 		this.date = date;
+		String[] split = date.split("-");
+		from = Integer.parseInt(split[0]);
+		to = Integer.parseInt(split[1]);
 	}
 	
 	public int getRemaining() {
@@ -40,5 +45,11 @@ public class GiftBean {
 	}
 	public String toString() {
 		return (getName() + " " + getDate() + " " + getRemaining() + " " + getReserved());
+	}
+	public int getFrom() {
+		return from;
+	}
+	public int getTo() {
+		return to;
 	}
 }
