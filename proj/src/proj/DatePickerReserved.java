@@ -132,7 +132,7 @@ public class DatePickerReserved {
 										setDate();
 										ReadAndStoreReserved kek = new ReadAndStoreReserved();
 										ReservedBean[] gift = kek.store();
-										ReadFile rows = new ReadFile();
+										ReadReserved rows = new ReadReserved();
 										gift[selectedRow].setDate(getDate());
 										EditReservedData reformat = new EditReservedData();
 										reformat.writeFile(rows.getNumberOfRows(), gift);
@@ -160,7 +160,7 @@ public class DatePickerReserved {
 											setDate();
 											ReadAndStoreReserved kek = new ReadAndStoreReserved();
 											ReservedBean[] gift = kek.store();
-											ReadFile rows = new ReadFile();
+											ReadReserved rows = new ReadReserved();
 											gift[selectedRow].setDate(getDate());
 											EditReservedData reformat = new EditReservedData();
 											reformat.writeFile(rows.getNumberOfRows(), gift);

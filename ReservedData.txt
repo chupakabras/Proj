@@ -1,9 +1,5 @@
-Course_to_Ice_Fishing 2020-April-1 2018-12-30
-Romantic_Stargazing_in_Wilderness_for_Two 2019-June-1 2021-3-6
-Scuba_Diving_in_Red_Sea 2019-November-1 2021-3-6
-Bowling_Game_in_Appollo_Club 2020-June-1 2018-12-30
-Bowling_Game_in_Appollo_Club 2019-June-1 2018-12-30
-Jump_with_the_Parachute 2019-July-1 2018-12-30
-Romantic_Stargazing_in_Wilderness_for_Two 2019-March-1 2018-12-30
-Tango_Dance_Lesson_Outside 2020-December-1 2018-12-30
-Bungee_Jumping 2019-February-1 2018-12-30
+Trip_Around_Lithuania 2020-April-1 2018-12-30
+Flying_with_Hot_Air_Baloon 2019-October-1 2018-12-30
+Bowling_Game_in_Appollo_Club 2020-March-1 2018-12-30
+Romantic_Stargazing_in_Wilderness_for_Two 2019-April-1 2018-12-30
+Ticket_to_Roller_Coaster_Park 2019-May-1 2019-1-30

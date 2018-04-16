@@ -180,7 +180,6 @@ public class DatePicker {
 											edit.writeFile(rows.getNumberOfRows(), gift);
 											EditReservedData rowadd = new EditReservedData();
 											rowadd.addRow(selectedRow, gift, getDate());
-										
 											frame.setVisible(false);
 										}
 									});

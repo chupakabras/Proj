@@ -18,7 +18,7 @@ public class EditReservedData {
 			currentDate.readFile();
 			currentDate.closeFile();
 			for(int i=0; i<row; i++) {
-				out.println(gift[i].getName().replace(' ', '_') + " " + gift[i].getDate() + " " + currentDate.getCurrentDate());
+				out.println(gift[i].getName().replace(' ', '_') + " " + gift[i].getDate() + " " + gift[i].getBDate());
 
 			}
 			} catch (IOException e) {
