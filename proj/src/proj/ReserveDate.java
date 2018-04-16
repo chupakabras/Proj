@@ -1,8 +1,12 @@
 package proj;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.*;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -41,6 +45,23 @@ public class ReserveDate extends JFrame {
 		table.getColumnModel().getColumn(0).setPreferredWidth(270);
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
+		
+		JButton btnSelectThisDate = new JButton("Refresh");
+		btnSelectThisDate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				//setVisible(false);
+				ReserveDate gui = new ReserveDate();
+				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+				gui.setSize(500, 500);
+				gui.setVisible(true);
+				gui.setTitle("Reserve Date");
+				gui.setResizable(false);
+			}
+
+		});
+		btnSelectThisDate.setBounds(490, 490, 130, 23);
+		getContentPane().add(btnSelectThisDate);
 		
 		ListSelectionModel model = table.getSelectionModel();
 		model.addListSelectionListener(new ListSelectionListener() {

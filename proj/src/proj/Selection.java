@@ -1,8 +1,12 @@
 package proj;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.*;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -30,11 +34,29 @@ public class Selection extends JFrame {
 				data[i][2] = Integer.toString(gift[i].getRemaining());
 				data[i][3] = Integer.toString(gift[i].getReserved());
 				}		
-		
+						
+
 		table = new JTable (data, columnNames);
 		table.getColumnModel().getColumn(0).setPreferredWidth(300);
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
+		
+		JButton btnSelectThisDate = new JButton("Refresh");
+		btnSelectThisDate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				//setVisible(false);
+				Selection gui = new Selection();
+				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+				gui.setResizable(false);
+				gui.setSize(500, 500);
+				gui.setVisible(true);
+				gui.setTitle("Gift list");
+			}
+
+		});
+		btnSelectThisDate.setBounds(490, 490, 130, 23);
+		getContentPane().add(btnSelectThisDate);
 		
 		ListSelectionModel model = table.getSelectionModel();
 		model.addListSelectionListener(new ListSelectionListener() {
