@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
-public class DatePicker {
+public class DatePickerReserved {
 
 	private int year;
 	private String month;
@@ -44,7 +44,7 @@ public class DatePicker {
 	/**
 	 * Create the application.
 	 */
-	public DatePicker(int selectedRow) {
+	public DatePickerReserved(int selectedRow) {
 		initialize(selectedRow);
 	}
 
