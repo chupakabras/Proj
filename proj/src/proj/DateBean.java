@@ -1,5 +1,5 @@
 package proj;
-//
+// 
 public class DateBean {
 
 	private int year;
