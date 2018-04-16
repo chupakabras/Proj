@@ -169,18 +169,12 @@ public class DatePickerReserved {
 									btnSelectThisDate.addActionListener(new ActionListener() {
 										public void actionPerformed(ActionEvent arg0) {
 											setDate();
-
-											ReadAndStore kek = new ReadAndStore();
-											GiftBean[] gift = kek.store();
+											ReadAndStoreReserved kek = new ReadAndStoreReserved();
+											ReservedBean[] gift = kek.store();
 											ReadFile rows = new ReadFile();
-											EditGiftData edit = new EditGiftData();
-
-											gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
-											gift[row].setRemaining(gift[row].getRemaining() - 1);
-											edit.writeFile(rows.getNumberOfRows(), gift);
-											EditReservedData rowadd = new EditReservedData();
-											rowadd.addRow(selectedRow, gift, getDate());
-											System.out.println(selectedRow);
+											gift[selectedRow].setDate(getDate());
+											EditReservedData reformat = new EditReservedData();
+											reformat.writeFile(rows.getNumberOfRows(), gift);
 											frame.setVisible(false);
 										}
 									});
