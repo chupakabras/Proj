@@ -50,13 +50,19 @@ public class ReserveDate extends JFrame {
 				String[] args = new String[1];
 				if (! model.isSelectionEmpty())
 				{
+					if (! e.getValueIsAdjusting()) {
 					int selectedRow = model.getMinSelectionIndex();
-					
+					//if (gift[selectedRow].getRemaining()>0) {
+						DatePicker d = new DatePicker(selectedRow);
+						d.main(selectedRow);
 					//DatePicker.main(args); 
-					
+					//}
+				//	else {
+				//		JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " date can't be changed");
+					//}
 				}
 			}
-			
+			}
 		});
 		
 	}

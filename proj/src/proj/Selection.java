@@ -45,6 +45,7 @@ public class Selection extends JFrame {
 				if (! model.isSelectionEmpty())
 				{
 					if (! e.getValueIsAdjusting()) {
+						
 					int selectedRow = model.getMinSelectionIndex();
 					if (gift[selectedRow].getRemaining()>0) {
 					DatePicker d = new DatePicker(selectedRow);

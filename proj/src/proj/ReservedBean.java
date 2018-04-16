@@ -23,5 +23,9 @@ public class ReservedBean {
 	public void setBDate(String bdate) {
 		this.bdate = bdate;
 	}
+	public int getRemaining() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
 
