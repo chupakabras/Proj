@@ -7,9 +7,9 @@ public class ReadAndStoreReserved{
 		ReadReserved r = new ReadReserved();
 		r.openFile();
 		int rows = r.getNumberOfRows();
-		this.rows = rows;
+		this.rows = rows+1;
 		String[] temp = new String[rows];
-		String[] wordsplit = new String[4];
+		String[] wordsplit = new String[5];
 		
 		ReservedBean[] gift = new ReservedBean[rows];
 		

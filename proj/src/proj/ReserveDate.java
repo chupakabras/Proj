@@ -47,13 +47,14 @@ public class ReserveDate extends JFrame {
 			
 
 			public void valueChanged(ListSelectionEvent e) {
+				openFile();
 				String[] args = new String[1];
 				if (! model.isSelectionEmpty())
 				{
 					if (! e.getValueIsAdjusting()) {
 					int selectedRow = model.getMinSelectionIndex();
 					//if (gift[selectedRow].getRemaining()>0) {
-						DatePicker d = new DatePicker(selectedRow);
+						DatePickerReserved d = new DatePickerReserved(selectedRow);
 						d.main(selectedRow);
 					//DatePicker.main(args); 
 					//}
@@ -62,7 +63,9 @@ public class ReserveDate extends JFrame {
 					//}
 				}
 			}
+				closeFile();
 			}
+
 		});
 		
 	}

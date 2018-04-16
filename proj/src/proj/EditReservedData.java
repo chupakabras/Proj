@@ -14,8 +14,11 @@ public class EditReservedData {
 			{
 			PrintWriter writer = new PrintWriter("ReservedData.txt");
 			writer.close();
+			currentDate.openFile();
+			currentDate.readFile();
+			currentDate.closeFile();
 			for(int i=0; i<row; i++) {
-				out.println(gift[i].getName().replace(' ', '_') + " " + gift[i].getDate());
+				out.println(gift[i].getName().replace(' ', '_') + " " + gift[i].getDate() + " " + currentDate.getCurrentDate());
 
 			}
 			} catch (IOException e) {

@@ -111,7 +111,7 @@ public class DatePicker {
 										edit.writeFile(rows.getNumberOfRows(), gift);
 										EditReservedData rowadd = new EditReservedData();
 										rowadd.addRow(selectedRow, gift, getDate());
-										System.out.println(selectedRow);
+								
 										frame.setVisible(false);
 
 									}
@@ -146,7 +146,7 @@ public class DatePicker {
 										edit.writeFile(rows.getNumberOfRows(), gift);
 										EditReservedData rowadd = new EditReservedData();
 										rowadd.addRow(selectedRow, gift, getDate());
-										System.out.println(selectedRow);
+									
 										frame.setVisible(false);
 
 									}
@@ -180,7 +180,7 @@ public class DatePicker {
 											edit.writeFile(rows.getNumberOfRows(), gift);
 											EditReservedData rowadd = new EditReservedData();
 											rowadd.addRow(selectedRow, gift, getDate());
-											System.out.println(selectedRow);
+										
 											frame.setVisible(false);
 										}
 									});
