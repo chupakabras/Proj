@@ -8,6 +8,7 @@ import java.util.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -20,6 +21,8 @@ public class Selection extends JFrame {
 	ReadAndStore kek = new ReadAndStore();
 	GiftBean[] gift = kek.store();
 	ReadFile rows = new ReadFile();
+	ReadCurrentDate currentDate = new ReadCurrentDate();
+
 	
 
 	//String strI = Integer.toString(i);
@@ -57,6 +60,13 @@ public class Selection extends JFrame {
 		});
 		btnSelectThisDate.setBounds(490, 490, 130, 23);
 		getContentPane().add(btnSelectThisDate);
+		currentDate.openFile();
+		currentDate.readFile();
+		currentDate.closeFile();
+		JLabel label1 = new JLabel("Current date " + currentDate.getCurrentDate());
+		label1.setBounds(500, 490, 130, 23);
+		getContentPane().add(label1);
+		label1.setVisible(true);
 		
 		ListSelectionModel model = table.getSelectionModel();
 		model.addListSelectionListener(new ListSelectionListener() {

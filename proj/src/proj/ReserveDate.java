@@ -8,6 +8,7 @@ import java.util.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -23,13 +24,14 @@ public class ReserveDate extends JFrame {
 	ReservedBean[] gift = kek.store();
 	ReadReserved rows = new ReadReserved();
 	TimeFlow time = new TimeFlow();
-	
+	ReadCurrentDate currentDate = new ReadCurrentDate();
 	private Scanner x;
 	private String date;
 
 	//String strI = Integer.toString(i);
 	JTable table;
 	public ReserveDate () {
+
 		openFile();
 		setLayout(new FlowLayout());
 		String[] columnNames = {"Gift Name", "Reserved for", "Bought on"};
@@ -62,6 +64,13 @@ public class ReserveDate extends JFrame {
 		});
 		btnSelectThisDate.setBounds(490, 490, 130, 23);
 		getContentPane().add(btnSelectThisDate);
+		currentDate.openFile();
+		currentDate.readFile();
+		currentDate.closeFile();
+		JLabel label1 = new JLabel("Current date " + currentDate.getCurrentDate());
+		label1.setBounds(500, 490, 130, 23);
+		getContentPane().add(label1);
+		label1.setVisible(true);
 		
 		ListSelectionModel model = table.getSelectionModel();
 		model.addListSelectionListener(new ListSelectionListener() {
