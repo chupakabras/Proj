@@ -23,7 +23,6 @@ public class ReserveDate extends JFrame {
 	ReadAndStoreReserved kek = new ReadAndStoreReserved();
 	ReservedBean[] gift = kek.store();
 	ReadReserved rows = new ReadReserved();
-	TimeFlow time = new TimeFlow();
 	ReadCurrentDate currentDate = new ReadCurrentDate();
 	private Scanner x;
 	private String date;
@@ -67,7 +66,7 @@ public class ReserveDate extends JFrame {
 		currentDate.openFile();
 		currentDate.readFile();
 		currentDate.closeFile();
-		JLabel label1 = new JLabel("Current date " + currentDate.getCurrentDate());
+		JLabel label1 = new JLabel("Current date "  + currentDate.getCurrentDate());
 		label1.setBounds(500, 490, 130, 23);
 		getContentPane().add(label1);
 		label1.setVisible(true);
