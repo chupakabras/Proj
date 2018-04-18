@@ -1,5 +1,6 @@
 package proj;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,19 +34,25 @@ public class ReserveDate extends JFrame {
 
 		openFile();
 		setLayout(new FlowLayout());
-		String[] columnNames = {"Gift Name", "Reserved for", "Bought on"};
+		String[] columnNames = {"Gift Name", "Reserved for", "Bought on", "Expiration"};
 			String[][] data = new String[rows.getNumberOfRows()][4];
 						for (int i=0; i<rows.getNumberOfRows(); i++) {
 				readFile();
 				data[i][0] = gift[i].getName();
 				data[i][1] = gift[i].getDate().replace("_", " ");
 				data[i][2] = date;
+				data[i][3] = null;
 				}		
 		closeFile();
 		table = new JTable (data, columnNames);
-		table.getColumnModel().getColumn(0).setPreferredWidth(270);
+		table.getColumnModel().getColumn(0).setPreferredWidth(245);
+		//table.getColumnModel().getColumn(3).setPreferredWidth(150);
+		//table.setPreferredSize(new Dimension(600,500));
+		
 		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setPreferredSize(new Dimension(550,430));
 		add(scrollPane);
+		
 		
 		JButton btnSelectThisDate = new JButton("Refresh");
 		btnSelectThisDate.addActionListener(new ActionListener() {
@@ -54,7 +61,7 @@ public class ReserveDate extends JFrame {
 				//setVisible(false);
 				ReserveDate gui = new ReserveDate();
 				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-				gui.setSize(500, 500);
+				gui.setSize(600, 500);
 				gui.setVisible(true);
 				gui.setTitle("Reserve Date");
 				gui.setResizable(false);
@@ -62,7 +69,7 @@ public class ReserveDate extends JFrame {
 
 		});
 		btnSelectThisDate.setBounds(490, 490, 130, 23);
-		getContentPane().add(btnSelectThisDate);
+		getContentPane().add(btnSelectThisDate); 
 		currentDate.openFile();
 		currentDate.readFile();
 		currentDate.closeFile();
