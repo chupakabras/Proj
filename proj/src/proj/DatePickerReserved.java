@@ -50,7 +50,7 @@ public class DatePickerReserved {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialize the contents of the frame..
 	 */
 	private void initialize(int selectedRow) {
 		frame = new JFrame();
