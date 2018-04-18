@@ -78,6 +78,7 @@ public class DatePickerReserved {
 
 				comboBox2.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4",
 						"5", "6", "7", "8", "9", "10", "11", "12" }));
+				
 				comboBox2.setToolTipText("Month");
 				comboBox2.setBounds(100, 38, 90, 22);
 				frame.getContentPane().add(comboBox2);
