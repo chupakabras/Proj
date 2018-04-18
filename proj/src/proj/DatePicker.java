@@ -82,8 +82,8 @@ public class DatePicker {
 				if (event.getStateChange() == ItemEvent.SELECTED)
 					setYear(Integer.parseInt((String) comboBox.getSelectedItem()));
 
-				comboBox2.setModel(new DefaultComboBoxModel(new String[] { "January", "February", "March", "April",
-						"May", "June", "July", "August", "September", "October", "November", "December" }));
+				comboBox2.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4",
+						"5", "6", "7", "8", "9", "10", "11", "12" }));
 				comboBox2.setToolTipText("Month");
 				comboBox2.setBounds(100, 38, 90, 22);
 				frame.getContentPane().add(comboBox2);
@@ -95,9 +95,9 @@ public class DatePicker {
 							
 							setMonth((String) comboBox2.getSelectedItem());
 							
-							if (getMonth().equals("January") || getMonth().equals("March") || getMonth().equals("May")
-									|| getMonth().equals("August") || getMonth().equals("October")
-									|| getMonth().equals("December") || getMonth().equals("July")) {
+							if (getMonth().equals("1") || getMonth().equals("3") || getMonth().equals("5")
+									|| getMonth().equals("8") || getMonth().equals("10")
+									|| getMonth().equals("12") || getMonth().equals("7")) {
 								comboBox3.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6",
 										"7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 										"21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
@@ -112,18 +112,18 @@ public class DatePicker {
 									public void actionPerformed(ActionEvent arg0) {
 										setDate();
 
-										if (getMonth().equals("January") &&  check[selectedRow].getFrom() <= 1 && check[selectedRow].getTo() >= 1){}
-										else if (getMonth().equals("February") &&  check[selectedRow].getFrom() <= 2 && check[selectedRow].getTo() >= 2){}
-										else if (getMonth().equals("March") &&  check[selectedRow].getFrom() <= 3 && check[selectedRow].getTo() >= 3){}
-										else if (getMonth().equals("April") &&  check[selectedRow].getFrom() <= 4 && check[selectedRow].getTo() >= 4){}
-										else if (getMonth().equals("May") &&  check[selectedRow].getFrom() <= 5 && check[selectedRow].getTo() >= 5){}
-										else if (getMonth().equals("June") &&  check[selectedRow].getFrom() <= 6 && check[selectedRow].getTo() >= 6){}
-										else if (getMonth().equals("July") &&  check[selectedRow].getFrom() <= 7 && check[selectedRow].getTo() >= 7){}
-										else if (getMonth().equals("August") &&  check[selectedRow].getFrom() <= 8 && check[selectedRow].getTo() >= 8){}
-										else if (getMonth().equals("September") &&  check[selectedRow].getFrom() <= 9 && check[selectedRow].getTo() >= 9){}
-										else if (getMonth().equals("October") &&  check[selectedRow].getFrom() <= 10 && check[selectedRow].getTo() >= 10){}
-										else if (getMonth().equals("November") &&  check[selectedRow].getFrom() <= 11 && check[selectedRow].getTo() >= 11){}
-										else if (getMonth().equals("December") &&  check[selectedRow].getFrom() <= 12 && check[selectedRow].getTo() >= 12){}
+										if (getMonth().equals("1") &&  check[selectedRow].getFrom() <= 1 && check[selectedRow].getTo() >= 1){}
+										else if (getMonth().equals("2") &&  check[selectedRow].getFrom() <= 2 && check[selectedRow].getTo() >= 2){}
+										else if (getMonth().equals("3") &&  check[selectedRow].getFrom() <= 3 && check[selectedRow].getTo() >= 3){}
+										else if (getMonth().equals("4") &&  check[selectedRow].getFrom() <= 4 && check[selectedRow].getTo() >= 4){}
+										else if (getMonth().equals("5") &&  check[selectedRow].getFrom() <= 5 && check[selectedRow].getTo() >= 5){}
+										else if (getMonth().equals("6") &&  check[selectedRow].getFrom() <= 6 && check[selectedRow].getTo() >= 6){}
+										else if (getMonth().equals("7") &&  check[selectedRow].getFrom() <= 7 && check[selectedRow].getTo() >= 7){}
+										else if (getMonth().equals("8") &&  check[selectedRow].getFrom() <= 8 && check[selectedRow].getTo() >= 8){}
+										else if (getMonth().equals("9") &&  check[selectedRow].getFrom() <= 9 && check[selectedRow].getTo() >= 9){}
+										else if (getMonth().equals("10") &&  check[selectedRow].getFrom() <= 10 && check[selectedRow].getTo() >= 10){}
+										else if (getMonth().equals("11") &&  check[selectedRow].getFrom() <= 11 && check[selectedRow].getTo() >= 11){}
+										else if (getMonth().equals("12") &&  check[selectedRow].getFrom() <= 12 && check[selectedRow].getTo() >= 12){}
 										else {
 											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
 											return;
@@ -147,8 +147,8 @@ public class DatePicker {
 								frame.getContentPane().add(btnSelectThisDate);
 								frame.repaint();
 
-							} else if (getMonth().equals("April") || getMonth().equals("June")
-									|| getMonth().equals("September") || getMonth().equals("November")) {
+							} else if (getMonth().equals("4") || getMonth().equals("6")
+									|| getMonth().equals("9") || getMonth().equals("11")) {
 								comboBox3.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6",
 										"7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 										"21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
@@ -162,18 +162,18 @@ public class DatePicker {
 								btnSelectThisDate.addActionListener(new ActionListener() {
 									public void actionPerformed(ActionEvent arg0) {
 										setDate();
-										if (getMonth().equals("January") &&  check[selectedRow].getFrom() <= 1 && check[selectedRow].getTo() >= 1){}
-										else if (getMonth().equals("February") &&  check[selectedRow].getFrom() <= 2 && check[selectedRow].getTo() >= 2){}
-										else if (getMonth().equals("March") &&  check[selectedRow].getFrom() <= 3 && check[selectedRow].getTo() >= 3){}
-										else if (getMonth().equals("April") &&  check[selectedRow].getFrom() <= 4 && check[selectedRow].getTo() >= 4){}
-										else if (getMonth().equals("May") &&  check[selectedRow].getFrom() <= 5 && check[selectedRow].getTo() >= 5){}
-										else if (getMonth().equals("June") &&  check[selectedRow].getFrom() <= 6 && check[selectedRow].getTo() >= 6){}
-										else if (getMonth().equals("July") &&  check[selectedRow].getFrom() <= 7 && check[selectedRow].getTo() >= 7){}
-										else if (getMonth().equals("August") &&  check[selectedRow].getFrom() <= 8 && check[selectedRow].getTo() >= 8){}
-										else if (getMonth().equals("September") &&  check[selectedRow].getFrom() <= 9 && check[selectedRow].getTo() >= 9){}
-										else if (getMonth().equals("October") &&  check[selectedRow].getFrom() <= 10 && check[selectedRow].getTo() >= 10){}
-										else if (getMonth().equals("November") &&  check[selectedRow].getFrom() <= 11 && check[selectedRow].getTo() >= 11){}
-										else if (getMonth().equals("December") &&  check[selectedRow].getFrom() <= 12 && check[selectedRow].getTo() >= 12){}
+										if (getMonth().equals("1") &&  check[selectedRow].getFrom() <= 1 && check[selectedRow].getTo() >= 1){}
+										else if (getMonth().equals("2") &&  check[selectedRow].getFrom() <= 2 && check[selectedRow].getTo() >= 2){}
+										else if (getMonth().equals("3") &&  check[selectedRow].getFrom() <= 3 && check[selectedRow].getTo() >= 3){}
+										else if (getMonth().equals("4") &&  check[selectedRow].getFrom() <= 4 && check[selectedRow].getTo() >= 4){}
+										else if (getMonth().equals("5") &&  check[selectedRow].getFrom() <= 5 && check[selectedRow].getTo() >= 5){}
+										else if (getMonth().equals("6") &&  check[selectedRow].getFrom() <= 6 && check[selectedRow].getTo() >= 6){}
+										else if (getMonth().equals("7") &&  check[selectedRow].getFrom() <= 7 && check[selectedRow].getTo() >= 7){}
+										else if (getMonth().equals("8") &&  check[selectedRow].getFrom() <= 8 && check[selectedRow].getTo() >= 8){}
+										else if (getMonth().equals("9") &&  check[selectedRow].getFrom() <= 9 && check[selectedRow].getTo() >= 9){}
+										else if (getMonth().equals("10") &&  check[selectedRow].getFrom() <= 10 && check[selectedRow].getTo() >= 10){}
+										else if (getMonth().equals("11") &&  check[selectedRow].getFrom() <= 11 && check[selectedRow].getTo() >= 11){}
+										else if (getMonth().equals("12") &&  check[selectedRow].getFrom() <= 12 && check[selectedRow].getTo() >= 12){}
 										else {
 											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
 											return;
@@ -196,7 +196,7 @@ public class DatePicker {
 								frame.getContentPane().add(btnSelectThisDate);
 								frame.repaint();
 
-							} else if (getMonth().equals("February")) {
+							} else if (getMonth().equals("2")) {
 								comboBox3.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6",
 										"7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 										"21", "22", "23", "24", "25", "26", "27", "28" }));
@@ -210,18 +210,18 @@ public class DatePicker {
 									btnSelectThisDate.addActionListener(new ActionListener() {
 										public void actionPerformed(ActionEvent arg0) {
 											setDate();
-											if (getMonth().equals("January") &&  check[selectedRow].getFrom() <= 1 && check[selectedRow].getTo() >= 1){}
-											else if (getMonth().equals("February") &&  check[selectedRow].getFrom() <= 2 && check[selectedRow].getTo() >= 2){}
-											else if (getMonth().equals("March") &&  check[selectedRow].getFrom() <= 3 && check[selectedRow].getTo() >= 3){}
-											else if (getMonth().equals("April") &&  check[selectedRow].getFrom() <= 4 && check[selectedRow].getTo() >= 4){}
-											else if (getMonth().equals("May") &&  check[selectedRow].getFrom() <= 5 && check[selectedRow].getTo() >= 5){}
-											else if (getMonth().equals("June") &&  check[selectedRow].getFrom() <= 6 && check[selectedRow].getTo() >= 6){}
-											else if (getMonth().equals("July") &&  check[selectedRow].getFrom() <= 7 && check[selectedRow].getTo() >= 7){}
-											else if (getMonth().equals("August") &&  check[selectedRow].getFrom() <= 8 && check[selectedRow].getTo() >= 8){}
-											else if (getMonth().equals("September") &&  check[selectedRow].getFrom() <= 9 && check[selectedRow].getTo() >= 9){}
-											else if (getMonth().equals("October") &&  check[selectedRow].getFrom() <= 10 && check[selectedRow].getTo() >= 10){}
-											else if (getMonth().equals("November") &&  check[selectedRow].getFrom() <= 11 && check[selectedRow].getTo() >= 11){}
-											else if (getMonth().equals("December") &&  check[selectedRow].getFrom() <= 12 && check[selectedRow].getTo() >= 12){}
+											if (getMonth().equals("1") &&  check[selectedRow].getFrom() <= 1 && check[selectedRow].getTo() >= 1){}
+											else if (getMonth().equals("2") &&  check[selectedRow].getFrom() <= 2 && check[selectedRow].getTo() >= 2){}
+											else if (getMonth().equals("3") &&  check[selectedRow].getFrom() <= 3 && check[selectedRow].getTo() >= 3){}
+											else if (getMonth().equals("4") &&  check[selectedRow].getFrom() <= 4 && check[selectedRow].getTo() >= 4){}
+											else if (getMonth().equals("5") &&  check[selectedRow].getFrom() <= 5 && check[selectedRow].getTo() >= 5){}
+											else if (getMonth().equals("6") &&  check[selectedRow].getFrom() <= 6 && check[selectedRow].getTo() >= 6){}
+											else if (getMonth().equals("7") &&  check[selectedRow].getFrom() <= 7 && check[selectedRow].getTo() >= 7){}
+											else if (getMonth().equals("8") &&  check[selectedRow].getFrom() <= 8 && check[selectedRow].getTo() >= 8){}
+											else if (getMonth().equals("9") &&  check[selectedRow].getFrom() <= 9 && check[selectedRow].getTo() >= 9){}
+											else if (getMonth().equals("10") &&  check[selectedRow].getFrom() <= 10 && check[selectedRow].getTo() >= 10){}
+											else if (getMonth().equals("11") &&  check[selectedRow].getFrom() <= 11 && check[selectedRow].getTo() >= 11){}
+											else if (getMonth().equals("12") &&  check[selectedRow].getFrom() <= 12 && check[selectedRow].getTo() >= 12){}
 											else {
 												JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
 												return;

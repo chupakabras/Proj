@@ -76,8 +76,8 @@ public class DatePickerReserved {
 				if (event.getStateChange() == ItemEvent.SELECTED)
 					setYear(Integer.parseInt((String) comboBox.getSelectedItem()));
 
-				comboBox2.setModel(new DefaultComboBoxModel(new String[] { "January", "February", "March", "April",
-						"May", "June", "July", "August", "September", "October", "November", "December" }));
+				comboBox2.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4",
+						"May", "6", "7", "8", "9", "10", "11", "12" }));
 				comboBox2.setToolTipText("Month");
 				comboBox2.setBounds(100, 38, 90, 22);
 				frame.getContentPane().add(comboBox2);
@@ -86,9 +86,9 @@ public class DatePickerReserved {
 					public void itemStateChanged(ItemEvent event) {
 						if (event.getStateChange() == ItemEvent.SELECTED) {
 							setMonth((String) comboBox2.getSelectedItem());
-							if (getMonth().equals("January") || getMonth().equals("March") || getMonth().equals("May")
-									|| getMonth().equals("August") || getMonth().equals("October")
-									|| getMonth().equals("December") || getMonth().equals("July")) {
+							if (getMonth().equals("1") || getMonth().equals("March") || getMonth().equals("May")
+									|| getMonth().equals("8") || getMonth().equals("10")
+									|| getMonth().equals("12") || getMonth().equals("7")) {
 								comboBox3.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6",
 										"7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 										"21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
@@ -116,8 +116,8 @@ public class DatePickerReserved {
 								frame.getContentPane().add(btnSelectThisDate);
 								frame.repaint();
 
-							} else if (getMonth().equals("April") || getMonth().equals("June")
-									|| getMonth().equals("September") || getMonth().equals("November")) {
+							} else if (getMonth().equals("4") || getMonth().equals("6")
+									|| getMonth().equals("9") || getMonth().equals("11")) {
 								comboBox3.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6",
 										"7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 										"21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
@@ -145,7 +145,7 @@ public class DatePickerReserved {
 								frame.getContentPane().add(btnSelectThisDate);
 								frame.repaint();
 
-							} else if (getMonth().equals("February")) {
+							} else if (getMonth().equals("2")) {
 								comboBox3.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6",
 										"7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 										"21", "22", "23", "24", "25", "26", "27", "28" }));
