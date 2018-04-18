@@ -77,7 +77,7 @@ public class DatePickerReserved {
 					setYear(Integer.parseInt((String) comboBox.getSelectedItem()));
 
 				comboBox2.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4",
-						"May", "6", "7", "8", "9", "10", "11", "12" }));
+						"5", "6", "7", "8", "9", "10", "11", "12" }));
 				comboBox2.setToolTipText("Month");
 				comboBox2.setBounds(100, 38, 90, 22);
 				frame.getContentPane().add(comboBox2);
@@ -86,7 +86,7 @@ public class DatePickerReserved {
 					public void itemStateChanged(ItemEvent event) {
 						if (event.getStateChange() == ItemEvent.SELECTED) {
 							setMonth((String) comboBox2.getSelectedItem());
-							if (getMonth().equals("1") || getMonth().equals("March") || getMonth().equals("May")
+							if (getMonth().equals("1") || getMonth().equals("3") || getMonth().equals("5")
 									|| getMonth().equals("8") || getMonth().equals("10")
 									|| getMonth().equals("12") || getMonth().equals("7")) {
 								comboBox3.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6",
