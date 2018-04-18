@@ -46,8 +46,6 @@ public class ReserveDate extends JFrame {
 		closeFile();
 		table = new JTable (data, columnNames);
 		table.getColumnModel().getColumn(0).setPreferredWidth(245);
-		//table.getColumnModel().getColumn(3).setPreferredWidth(150);
-		//table.setPreferredSize(new Dimension(600,500));
 		
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setPreferredSize(new Dimension(550,430));
