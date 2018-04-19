@@ -28,6 +28,7 @@ public class ReserveDate extends JFrame {
 	ReservedBean[] gift = kek.store();
 	ReadReserved rows = new ReadReserved();
 	ReadCurrentDate currentDate = new ReadCurrentDate();
+	DateConverter convert = new DateConverter();
 	private Scanner x;
 	private String date;
 
@@ -50,15 +51,14 @@ public class ReserveDate extends JFrame {
 			currentDate.openFile();
 			currentDate.readFile();
 			currentDate.closeFile();
-
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-			LocalDate firstDate = LocalDate.parse(currentDate.getCurrentDate(), formatter);
-			LocalDate secDate = LocalDate.parse(date, formatter);
-			long days = ChronoUnit.DAYS.between(firstDate, secDate); 
+			LocalDate firstDate = LocalDate.parse(convert.convertDate(currentDate.getCurrentDate()), formatter);
+			LocalDate secDate = LocalDate.parse(convert.convertDate(date), formatter);
+			long days = ChronoUnit.DAYS.between(secDate, firstDate); 
 			
-			System.out.println(days);
+			//System.out.println(days);
 			
-			data[i][3] = null;
+			data[i][3] = Long.toString(days);
 		}
 		closeFile();
 		table = new JTable(data, columnNames);
