@@ -37,7 +37,7 @@ public class EditReservedData {
 				out.println(gift[row].getName().replace(' ', '_') + " " + date + " " + currentDate.getCurrentDate() + " Valid" );
 				
 			} catch (IOException e) {
-			    //exception handling left as an exercise for the reader
+			    //exception handling left as an exercise for the readers
 			}		
 	}
 }
