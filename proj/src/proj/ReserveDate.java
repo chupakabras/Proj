@@ -20,7 +20,7 @@ import javax.swing.event.ListSelectionListener;
 import javafx.application.Application;
 
 public class ReserveDate extends JFrame {
-	
+
 	ReadAndStoreReserved kek = new ReadAndStoreReserved();
 	ReservedBean[] gift = kek.store();
 	ReadReserved rows = new ReadReserved();
@@ -28,35 +28,36 @@ public class ReserveDate extends JFrame {
 	private Scanner x;
 	private String date;
 
-	//String strI = Integer.toString(i);
+	// String strI = Integer.toString(i);
 	JTable table;
-	public ReserveDate () {
+
+	public ReserveDate() {
 
 		openFile();
 		setLayout(new FlowLayout());
-		String[] columnNames = {"Gift Name", "Reserved for", "Bought on", "Expiration"};
-			String[][] data = new String[rows.getNumberOfRows()][4];
-						for (int i=0; i<rows.getNumberOfRows(); i++) {
-				readFile();
-				data[i][0] = gift[i].getName();
-				data[i][1] = gift[i].getDate().replace("_", " ");
-				data[i][2] = date;
-				data[i][3] = null;
-				}		
+		String[] columnNames = { "Gift Name", "Reserved for", "Bought on", "Expiration" };
+		String[][] data = new String[rows.getNumberOfRows()][4];
+		for (int i = 0; i < rows.getNumberOfRows(); i++) {
+			readFile();
+			data[i][0] = gift[i].getName();
+			data[i][1] = gift[i].getDate().replace("_", " ");
+			data[i][2] = date;
+			data[i][3] = null;
+		}
 		closeFile();
-		table = new JTable (data, columnNames);
+		table = new JTable(data, columnNames);
 		table.getColumnModel().getColumn(0).setPreferredWidth(245);
-		
+
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setPreferredSize(new Dimension(550,430));
+		scrollPane.setPreferredSize(new Dimension(550, 430));
 		add(scrollPane);
-		
-		
+
 		JButton btnSelectThisDate = new JButton("Refresh");
 		btnSelectThisDate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
-				//setVisible(false);
+				System.out.println(date);
+				// setVisible(false);
 				ReserveDate gui = new ReserveDate();
 				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 				gui.setSize(600, 500);
@@ -67,60 +68,58 @@ public class ReserveDate extends JFrame {
 
 		});
 		btnSelectThisDate.setBounds(490, 490, 130, 23);
-		getContentPane().add(btnSelectThisDate); 
+		getContentPane().add(btnSelectThisDate);
 		currentDate.openFile();
 		currentDate.readFile();
 		currentDate.closeFile();
-		JLabel label1 = new JLabel("Current date "  + currentDate.getCurrentDate());
+		JLabel label1 = new JLabel("Current date " + currentDate.getCurrentDate());
 		label1.setBounds(500, 490, 130, 23);
 		getContentPane().add(label1);
 		label1.setVisible(true);
-		
+
 		ListSelectionModel model = table.getSelectionModel();
 		model.addListSelectionListener(new ListSelectionListener() {
-			
 
 			public void valueChanged(ListSelectionEvent e) {
 				openFile();
 				String[] args = new String[1];
-				if (! model.isSelectionEmpty())
-				{
-					if (! e.getValueIsAdjusting()) {
-					int selectedRow = model.getMinSelectionIndex();
-					//if (gift[selectedRow].getRemaining()>0) {
+				if (!model.isSelectionEmpty()) {
+					if (!e.getValueIsAdjusting()) {
+						int selectedRow = model.getMinSelectionIndex();
+						// if (gift[selectedRow].getRemaining()>0) {
 						DatePickerReserved d = new DatePickerReserved(selectedRow);
 						d.main(selectedRow);
-					//DatePicker.main(args); 
-					//}
-				//	else {
-				//		JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " date can't be changed");
-					//}
+						// DatePicker.main(args);
+						// }
+						// else {
+						// JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " date
+						// can't be changed");
+						// }
+					}
 				}
-			}
 				closeFile();
 			}
 
 		});
-		
+
 	}
 
 	public void openFile() {
-		 try{
-			 x = new Scanner(new File("ReservedData.txt"));
-		 }
-		 catch (Exception e) {
-			 System.out.println("CurrentDate.txt couldn't be opened");
-		 }
-	 }
-	 
-	 public void readFile() {
-		 x.next();
-		 x.next();
-		 date = x.next();
-	 }
-	 
-	 public void closeFile() {
-		 x.close();
-	 }
-	
+		try {
+			x = new Scanner(new File("ReservedData.txt"));
+		} catch (Exception e) {
+			System.out.println("CurrentDate.txt couldn't be opened");
+		}
+	}
+
+	public void readFile() {
+		x.next();
+		x.next();
+		date = x.next();
+	}
+
+	public void closeFile() {
+		x.close();
+	}
+
 }

@@ -4,7 +4,14 @@ public class ReservedBean {
 	private String name;
 	private String date;
 	private String bdate;
+	private String state;
 	
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	public String getName() {
 		return name;
 	}
@@ -24,7 +31,6 @@ public class ReservedBean {
 		this.bdate = bdate;
 	}
 	public int getRemaining() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 }
