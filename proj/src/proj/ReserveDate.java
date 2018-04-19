@@ -74,11 +74,9 @@ public class ReserveDate extends JFrame {
 		btnSelectThisDate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
-				System.out.println(date);
-				// setVisible(false);
 				ReserveDate gui = new ReserveDate();
 				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-				gui.setSize(600, 500);
+				gui.setSize(600, 520);
 				gui.setVisible(true);
 				gui.setTitle("Reserve Date");
 				gui.setResizable(false);
