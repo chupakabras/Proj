@@ -34,7 +34,7 @@ public class EditReservedData {
 				currentDate.openFile();
 				currentDate.readFile();
 				currentDate.closeFile();
-				out.println(gift[row].getName().replace(' ', '_') + " " + date + " " + currentDate.getCurrentDate() + " Valid" );
+				out.println(gift[row].getName().replace(' ', '_') + " " + date + " " + currentDate.getCurrentDate() + " Valid");
 				
 			} catch (IOException e) {
 			    //exception handling left as an exercise for the readers

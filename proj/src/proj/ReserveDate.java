@@ -46,7 +46,6 @@ public class ReserveDate extends JFrame {
 			data[i][0] = gift[i].getName();
 			data[i][1] = gift[i].getDate().replace("_", " ");
 			data[i][2] = date;
-			
 
 			currentDate.openFile();
 			currentDate.readFile();
@@ -54,11 +53,14 @@ public class ReserveDate extends JFrame {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 			LocalDate firstDate = LocalDate.parse(convert.convertDate(currentDate.getCurrentDate()), formatter);
 			LocalDate secDate = LocalDate.parse(convert.convertDate(date), formatter);
-			long days = ChronoUnit.DAYS.between(secDate, firstDate); 
-			
-			//System.out.println(days);
-			
-			data[i][3] = Long.toString(days);
+			long days = ChronoUnit.DAYS.between(secDate, firstDate);
+
+			if (days >= 31) {
+				data[i][3] = "Expired";
+				gift[i].setState(data[i][3]);
+			} else
+				data[i][3] = Long.toString(31 - days) + " days left";
+			gift[i].setState(data[i][3]);
 		}
 		closeFile();
 		table = new JTable(data, columnNames);
@@ -102,15 +104,14 @@ public class ReserveDate extends JFrame {
 				if (!model.isSelectionEmpty()) {
 					if (!e.getValueIsAdjusting()) {
 						int selectedRow = model.getMinSelectionIndex();
-						// if (gift[selectedRow].getRemaining()>0) {
-						DatePickerReserved d = new DatePickerReserved(selectedRow);
-						d.main(selectedRow);
-						// DatePicker.main(args);
-						// }
-						// else {
-						// JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " date
-						// can't be changed");
-						// }
+						if (gift[selectedRow].getState().equals("Expired")) {
+							JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is expired");
+						}
+						else {
+							DatePickerReserved d = new DatePickerReserved(selectedRow);
+							d.main(selectedRow);
+						}
+						
 					}
 				}
 				closeFile();
