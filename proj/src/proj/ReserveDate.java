@@ -5,6 +5,9 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 import javax.swing.JButton;
@@ -42,6 +45,19 @@ public class ReserveDate extends JFrame {
 			data[i][0] = gift[i].getName();
 			data[i][1] = gift[i].getDate().replace("_", " ");
 			data[i][2] = date;
+			
+
+			currentDate.openFile();
+			currentDate.readFile();
+			currentDate.closeFile();
+
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			LocalDate firstDate = LocalDate.parse(currentDate.getCurrentDate(), formatter);
+			LocalDate secDate = LocalDate.parse(date, formatter);
+			long days = ChronoUnit.DAYS.between(firstDate, secDate); 
+			
+			System.out.println(days);
+			
 			data[i][3] = null;
 		}
 		closeFile();
