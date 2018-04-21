@@ -6,15 +6,6 @@ import java.util.*;
 
 public class EditGiftData {
 	private Writer x;
-	/*public static void main(String[] args) {
-		EditGiftData edit = new EditGiftData();
-		ReadAndStore kek = new ReadAndStore();
-		GiftBean[] gift = kek.store();
-		ReadFile rows = new ReadFile();
-		int row = rows.getNumberOfRows();
-		edit.writeFile(row, gift);
-	
-	}*/
 	
 	public void writeFile(int row, GiftBean[] gift) {
 		try(FileWriter fw = new FileWriter("GiftData.txt", true);

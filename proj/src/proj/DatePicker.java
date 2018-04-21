@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
 
 public class DatePicker {
 
-	private int year;
+	private String year;
 	private String month;
-	private int day;
+	private String day;
 	private String date;
 	private int row;
 	private int selectedRow;
@@ -68,7 +68,7 @@ public class DatePicker {
 		JComboBox comboBox2 = new JComboBox();
 		JComboBox comboBox3 = new JComboBox();
 
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "2018", "2019", "2020" }));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "Year", "2018", "2019", "2020" }));
 		comboBox.setToolTipText("Year");
 		comboBox.setBounds(10, 38, 77, 22);
 		frame.getContentPane().add(comboBox);
@@ -80,9 +80,9 @@ public class DatePicker {
 		comboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent event) {
 				if (event.getStateChange() == ItemEvent.SELECTED)
-					setYear(Integer.parseInt((String) comboBox.getSelectedItem()));
+					setYear((String) comboBox.getSelectedItem());
 
-				comboBox2.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4",
+				comboBox2.setModel(new DefaultComboBoxModel(new String[] {"Month", "1", "2", "3", "4",
 						"5", "6", "7", "8", "9", "10", "11", "12" }));
 				comboBox2.setToolTipText("Month");
 				comboBox2.setBounds(100, 38, 90, 22);
@@ -98,35 +98,58 @@ public class DatePicker {
 							if (getMonth().equals("1") || getMonth().equals("3") || getMonth().equals("5")
 									|| getMonth().equals("8") || getMonth().equals("10")
 									|| getMonth().equals("12") || getMonth().equals("7")) {
-								comboBox3.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6",
+								comboBox3.setModel(new DefaultComboBoxModel(new String[] {"Day", "1", "2", "3", "4", "5", "6",
 										"7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 										"21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 								comboBox3.setToolTipText("Day");
 								comboBox3.setBounds(210, 38, 50, 22);
 								frame.getContentPane().add(comboBox3);
 								if (event.getStateChange() == ItemEvent.SELECTED)
-									setDay(Integer.parseInt((String) comboBox3.getSelectedItem()));
+									setDay((String) comboBox3.getSelectedItem());
 
 								JButton btnSelectThisDate = new JButton("Select this date");
 								btnSelectThisDate.addActionListener(new ActionListener() {
 									public void actionPerformed(ActionEvent arg0) {
+										setDay((String) comboBox3.getSelectedItem());
 										setDate();
-
-										if (getMonth().equals("1") &&  check[selectedRow].getFrom() <= 1 && check[selectedRow].getTo() >= 1){}
-										else if (getMonth().equals("2") &&  check[selectedRow].getFrom() <= 2 && check[selectedRow].getTo() >= 2){}
-										else if (getMonth().equals("3") &&  check[selectedRow].getFrom() <= 3 && check[selectedRow].getTo() >= 3){}
-										else if (getMonth().equals("4") &&  check[selectedRow].getFrom() <= 4 && check[selectedRow].getTo() >= 4){}
-										else if (getMonth().equals("5") &&  check[selectedRow].getFrom() <= 5 && check[selectedRow].getTo() >= 5){}
-										else if (getMonth().equals("6") &&  check[selectedRow].getFrom() <= 6 && check[selectedRow].getTo() >= 6){}
-										else if (getMonth().equals("7") &&  check[selectedRow].getFrom() <= 7 && check[selectedRow].getTo() >= 7){}
-										else if (getMonth().equals("8") &&  check[selectedRow].getFrom() <= 8 && check[selectedRow].getTo() >= 8){}
-										else if (getMonth().equals("9") &&  check[selectedRow].getFrom() <= 9 && check[selectedRow].getTo() >= 9){}
-										else if (getMonth().equals("10") &&  check[selectedRow].getFrom() <= 10 && check[selectedRow].getTo() >= 10){}
-										else if (getMonth().equals("11") &&  check[selectedRow].getFrom() <= 11 && check[selectedRow].getTo() >= 11){}
-										else if (getMonth().equals("12") &&  check[selectedRow].getFrom() <= 12 && check[selectedRow].getTo() >= 12){}
-										else {
-											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
+										boolean bounds = false;
+										if (getYear() == "Year" && getMonth() == "Month" && getDay() == "Day") {
+											JOptionPane.showMessageDialog(null, "Please select year, month and day");
 											return;
+										}
+										else if (getYear() == "Year" && getMonth() == "Month") {
+											JOptionPane.showMessageDialog(null, "Please select year and month");
+											return;
+										}
+										else if (getYear() == "Year" && getDay() == "Day") {
+											JOptionPane.showMessageDialog(null, "Please select year and day");
+											return;
+										}
+										else if (getMonth() == "Month" && getDay() == "Day") {
+											JOptionPane.showMessageDialog(null, "Please select month and day");
+											return;
+										}
+										else if (getYear()== "Year") {
+											JOptionPane.showMessageDialog(null, "Please select year");
+											return;
+										}
+										else if (getMonth() == "Month") {
+											JOptionPane.showMessageDialog(null, "Please select month");
+											return;
+										}
+										else if (getDay() == "Day") {
+											JOptionPane.showMessageDialog(null, "Please select day");
+											return;
+										}
+
+										for(int k=1; k<=12; k++) {
+											if(Integer.parseInt(getMonth()) == k && check[selectedRow].getFrom() <= k && check[selectedRow].getTo() >= k) {
+												 bounds = true;
+											}
+										}
+										if(bounds == false) {
+											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
+										return;
 										}
 										
 										ReadAndStore kek = new ReadAndStore();
@@ -149,34 +172,58 @@ public class DatePicker {
 
 							} else if (getMonth().equals("4") || getMonth().equals("6")
 									|| getMonth().equals("9") || getMonth().equals("11")) {
-								comboBox3.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6",
+								comboBox3.setModel(new DefaultComboBoxModel(new String[] {"Day", "1", "2", "3", "4", "5", "6",
 										"7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 										"21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
 								comboBox3.setToolTipText("Day");
 								comboBox3.setBounds(210, 38, 50, 22);
 								frame.getContentPane().add(comboBox3);
 								if (event.getStateChange() == ItemEvent.SELECTED)
-									setDay(Integer.parseInt((String) comboBox3.getSelectedItem()));
+									setDay((String) comboBox3.getSelectedItem());
 
 								JButton btnSelectThisDate = new JButton("Select this date");
 								btnSelectThisDate.addActionListener(new ActionListener() {
 									public void actionPerformed(ActionEvent arg0) {
+										setDay((String) comboBox3.getSelectedItem());
 										setDate();
-										if (getMonth().equals("1") &&  check[selectedRow].getFrom() <= 1 && check[selectedRow].getTo() >= 1){}
-										else if (getMonth().equals("2") &&  check[selectedRow].getFrom() <= 2 && check[selectedRow].getTo() >= 2){}
-										else if (getMonth().equals("3") &&  check[selectedRow].getFrom() <= 3 && check[selectedRow].getTo() >= 3){}
-										else if (getMonth().equals("4") &&  check[selectedRow].getFrom() <= 4 && check[selectedRow].getTo() >= 4){}
-										else if (getMonth().equals("5") &&  check[selectedRow].getFrom() <= 5 && check[selectedRow].getTo() >= 5){}
-										else if (getMonth().equals("6") &&  check[selectedRow].getFrom() <= 6 && check[selectedRow].getTo() >= 6){}
-										else if (getMonth().equals("7") &&  check[selectedRow].getFrom() <= 7 && check[selectedRow].getTo() >= 7){}
-										else if (getMonth().equals("8") &&  check[selectedRow].getFrom() <= 8 && check[selectedRow].getTo() >= 8){}
-										else if (getMonth().equals("9") &&  check[selectedRow].getFrom() <= 9 && check[selectedRow].getTo() >= 9){}
-										else if (getMonth().equals("10") &&  check[selectedRow].getFrom() <= 10 && check[selectedRow].getTo() >= 10){}
-										else if (getMonth().equals("11") &&  check[selectedRow].getFrom() <= 11 && check[selectedRow].getTo() >= 11){}
-										else if (getMonth().equals("12") &&  check[selectedRow].getFrom() <= 12 && check[selectedRow].getTo() >= 12){}
-										else {
-											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
+										boolean bounds = false;
+										if (getYear() == "Year" && getMonth() == "Month" && getDay() == "Day") {
+											JOptionPane.showMessageDialog(null, "Please select year, month and day");
 											return;
+										}
+										else if (getYear() == "Year" && getMonth() == "Month") {
+											JOptionPane.showMessageDialog(null, "Please select year and month");
+											return;
+										}
+										else if (getYear() == "Year" && getDay() == "Day") {
+											JOptionPane.showMessageDialog(null, "Please select year and day");
+											return;
+										}
+										else if (getMonth() == "Month" && getDay() == "Day") {
+											JOptionPane.showMessageDialog(null, "Please select month and day");
+											return;
+										}
+										else if (getYear()== "Year") {
+											JOptionPane.showMessageDialog(null, "Please select year");
+											return;
+										}
+										else if (getMonth() == "Month") {
+											JOptionPane.showMessageDialog(null, "Please select month");
+											return;
+										}
+										else if (getDay() == "Day") {
+											JOptionPane.showMessageDialog(null, "Please select day");
+											return;
+										}
+
+										for(int k=1; k<=12; k++) {
+											if(Integer.parseInt(getMonth()) == k && check[selectedRow].getFrom() <= k && check[selectedRow].getTo() >= k) {
+												 bounds = true;
+											}
+										}
+										if(bounds == false) {
+											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
+										return;
 										}
 
 										ReadAndStore kek = new ReadAndStore();
@@ -197,34 +244,58 @@ public class DatePicker {
 								frame.repaint();
 
 							} else if (getMonth().equals("2")) {
-								comboBox3.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6",
+								comboBox3.setModel(new DefaultComboBoxModel(new String[] {"Day", "1", "2", "3", "4", "5", "6",
 										"7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 										"21", "22", "23", "24", "25", "26", "27", "28" }));
 								comboBox3.setToolTipText("Day");
 								comboBox3.setBounds(210, 38, 50, 22);
 								frame.getContentPane().add(comboBox3);
 								if (event.getStateChange() == ItemEvent.SELECTED) {
-									setDay(Integer.parseInt((String) comboBox3.getSelectedItem()));
+									setDay((String) comboBox3.getSelectedItem());
 
 									JButton btnSelectThisDate = new JButton("Select this date");
 									btnSelectThisDate.addActionListener(new ActionListener() {
 										public void actionPerformed(ActionEvent arg0) {
+											setDay((String) comboBox3.getSelectedItem());
 											setDate();
-											if (getMonth().equals("1") &&  check[selectedRow].getFrom() <= 1 && check[selectedRow].getTo() >= 1){}
-											else if (getMonth().equals("2") &&  check[selectedRow].getFrom() <= 2 && check[selectedRow].getTo() >= 2){}
-											else if (getMonth().equals("3") &&  check[selectedRow].getFrom() <= 3 && check[selectedRow].getTo() >= 3){}
-											else if (getMonth().equals("4") &&  check[selectedRow].getFrom() <= 4 && check[selectedRow].getTo() >= 4){}
-											else if (getMonth().equals("5") &&  check[selectedRow].getFrom() <= 5 && check[selectedRow].getTo() >= 5){}
-											else if (getMonth().equals("6") &&  check[selectedRow].getFrom() <= 6 && check[selectedRow].getTo() >= 6){}
-											else if (getMonth().equals("7") &&  check[selectedRow].getFrom() <= 7 && check[selectedRow].getTo() >= 7){}
-											else if (getMonth().equals("8") &&  check[selectedRow].getFrom() <= 8 && check[selectedRow].getTo() >= 8){}
-											else if (getMonth().equals("9") &&  check[selectedRow].getFrom() <= 9 && check[selectedRow].getTo() >= 9){}
-											else if (getMonth().equals("10") &&  check[selectedRow].getFrom() <= 10 && check[selectedRow].getTo() >= 10){}
-											else if (getMonth().equals("11") &&  check[selectedRow].getFrom() <= 11 && check[selectedRow].getTo() >= 11){}
-											else if (getMonth().equals("12") &&  check[selectedRow].getFrom() <= 12 && check[selectedRow].getTo() >= 12){}
-											else {
-												JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
+											boolean bounds = false;
+											if (getYear() == "Year" && getMonth() == "Month" && getDay() == "Day") {
+												JOptionPane.showMessageDialog(null, "Please select year, month and day");
 												return;
+											}
+											else if (getYear() == "Year" && getMonth() == "Month") {
+												JOptionPane.showMessageDialog(null, "Please select year and month");
+												return;
+											}
+											else if (getYear() == "Year" && getDay() == "Day") {
+												JOptionPane.showMessageDialog(null, "Please select year and day");
+												return;
+											}
+											else if (getMonth() == "Month" && getDay() == "Day") {
+												JOptionPane.showMessageDialog(null, "Please select month and day");
+												return;
+											}
+											else if (getYear()== "Year") {
+												JOptionPane.showMessageDialog(null, "Please select year");
+												return;
+											}
+											else if (getMonth() == "Month") {
+												JOptionPane.showMessageDialog(null, "Please select month");
+												return;
+											}
+											else if (getDay() == "Day") {
+												JOptionPane.showMessageDialog(null, "Please select day");
+												return;
+											}
+
+											for(int k=1; k<=12; k++) {
+												if(Integer.parseInt(getMonth()) == k && check[selectedRow].getFrom() <= k && check[selectedRow].getTo() >= k) {
+													 bounds = true;
+												}
+											}
+											if(bounds == false) {
+												JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
+											return;
 											}
 											
 
@@ -255,11 +326,11 @@ public class DatePicker {
 		});
 	}
 
-	private void setYear(int year) {
+	private void setYear(String year) {
 		this.year = year;
 	}
 
-	private int getYear() {
+	private String getYear() {
 		return year;
 	}
 
@@ -271,10 +342,13 @@ public class DatePicker {
 		return month;
 	}
 
-	private void setDay(int day) {
+	private void setDay(String day) {
 		this.day = day;
 	}
 
+	private String getDay() {
+		return day;
+	}
 	private void setDate() {
 		date = year + "-" + month + "-" + day;
 	}
