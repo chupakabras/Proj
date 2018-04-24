@@ -39,7 +39,7 @@ public class ReserveDate extends JFrame {
 
 		openFile();
 		setLayout(new FlowLayout());
-		String[] columnNames = { "Gift Name", "Can be reserved for", "Reserved for", "Bought on", "Expiration" };
+		String[] columnNames = { "Gift Name", "Available for", "Reserved for", "Bought on", "Expiration" };
 		String[][] data = new String[rows.getNumberOfRows()][5];
 		for (int i = 0; i < rows.getNumberOfRows(); i++) {
 			readFile();
@@ -66,9 +66,11 @@ public class ReserveDate extends JFrame {
 		closeFile();
 		table = new JTable(data, columnNames);
 		table.getColumnModel().getColumn(0).setPreferredWidth(245);
-
+		table.getColumnModel().getColumn(2).setPreferredWidth(60);
+		table.getColumnModel().getColumn(3).setPreferredWidth(60);
+		table.getColumnModel().getColumn(4).setPreferredWidth(60);
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setPreferredSize(new Dimension(550, 430));
+		scrollPane.setPreferredSize(new Dimension(620, 430));
 		add(scrollPane);
 
 		JButton btnSelectThisDate = new JButton("Refresh");
@@ -77,7 +79,7 @@ public class ReserveDate extends JFrame {
 				dispose();
 				ReserveDate gui = new ReserveDate();
 				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-				gui.setSize(600, 520);
+				gui.setSize(670, 520);
 				gui.setVisible(true);
 				gui.setTitle("Reserve Date");
 				gui.setResizable(false);

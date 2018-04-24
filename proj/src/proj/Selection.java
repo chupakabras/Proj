@@ -29,7 +29,7 @@ public class Selection extends JFrame {
 	JTable table;
 	public Selection () {
 		setLayout(new FlowLayout());
-		String[] columnNames = {"Gift Name", "When can be ordered", "Left","Reserved" };
+		String[] columnNames = {"Gift Name", "Available for", "Left","Reserved" };
 			String[][] data = new String[rows.getNumberOfRows()][4];
 						for (int i=0; i<rows.getNumberOfRows(); i++) {
 				data[i][0] = gift[i].getName();
@@ -41,6 +41,9 @@ public class Selection extends JFrame {
 
 		table = new JTable (data, columnNames);
 		table.getColumnModel().getColumn(0).setPreferredWidth(300);
+		table.getColumnModel().getColumn(1).setPreferredWidth(85);
+		table.getColumnModel().getColumn(2).setPreferredWidth(35);
+		
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
 		
