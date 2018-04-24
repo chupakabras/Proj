@@ -46,9 +46,7 @@ public class ReserveDate extends JFrame {
 			data[i][0] = gift[i].getName();
 			data[i][1] = gift[i].getDate().replace("_", " ");
 			data[i][2] = date;
-			
-			x.next();
-			
+						
 			currentDate.openFile();
 			currentDate.readFile();
 			currentDate.closeFile();
