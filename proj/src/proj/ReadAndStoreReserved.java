@@ -9,7 +9,7 @@ public class ReadAndStoreReserved{
 		int rows = r.getNumberOfRows();
 		this.rows = rows+1;
 		String[] temp = new String[rows];
-		String[] wordsplit = new String[5];
+		String[] wordsplit = new String[6];
 		
 		ReservedBean[] gift = new ReservedBean[rows];
 		
@@ -19,8 +19,9 @@ public class ReadAndStoreReserved{
 			wordsplit = temp[i].split(" ");
 			wordsplit[0] = wordsplit[0].replace("_", " ");
 			gift[i].setName(wordsplit[0]);
-			gift[i].setDate(wordsplit[1]);
-			gift[i].setBDate(wordsplit[2]);
+			gift[i].setOrdDate(wordsplit[1]);
+			gift[i].setDate(wordsplit[2]);
+			gift[i].setBDate(wordsplit[3]);
 		}
 		r.closeFile();
 		
