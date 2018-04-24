@@ -39,13 +39,14 @@ public class ReserveDate extends JFrame {
 
 		openFile();
 		setLayout(new FlowLayout());
-		String[] columnNames = { "Gift Name", "Reserved for", "Bought on", "Expiration" };
-		String[][] data = new String[rows.getNumberOfRows()][4];
+		String[] columnNames = { "Gift Name", "Can be reserved for", "Reserved for", "Bought on", "Expiration" };
+		String[][] data = new String[rows.getNumberOfRows()][5];
 		for (int i = 0; i < rows.getNumberOfRows(); i++) {
 			readFile();
 			data[i][0] = gift[i].getName();
-			data[i][1] = gift[i].getDate().replace("_", " ");
-			data[i][2] = date;
+			data[i][1] = gift[i].getOrdDate();
+			data[i][2] = gift[i].getDate().replace("_", " ");
+			data[i][3] = date;
 						
 			currentDate.openFile();
 			currentDate.readFile();
@@ -56,11 +57,11 @@ public class ReserveDate extends JFrame {
 			long days = ChronoUnit.DAYS.between(secDate, firstDate);
 
 			if (days >= 31) {
-				data[i][3] = "Expired";
-				gift[i].setState(data[i][3]);
+				data[i][4] = "Expired";
+				gift[i].setState(data[i][4]);
 			} else
-				data[i][3] = Long.toString(31 - days) + " days left";
-			gift[i].setState(data[i][3]);
+				data[i][4] = Long.toString(31 - days) + " days left";
+			gift[i].setState(data[i][4]);
 		}
 		closeFile();
 		table = new JTable(data, columnNames);
@@ -98,7 +99,6 @@ public class ReserveDate extends JFrame {
 
 			public void valueChanged(ListSelectionEvent e) {
 				openFile();
-				String[] args = new String[1];
 				if (!model.isSelectionEmpty()) {
 					if (!e.getValueIsAdjusting()) {
 						int selectedRow = model.getMinSelectionIndex();
@@ -128,6 +128,7 @@ public class ReserveDate extends JFrame {
 	}
 
 	public void readFile() {
+		x.next();
 		x.next();
 		x.next();
 		date = x.next();

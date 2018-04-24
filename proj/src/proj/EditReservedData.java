@@ -18,7 +18,7 @@ public class EditReservedData {
 			currentDate.readFile();
 			currentDate.closeFile();
 			for(int i=0; i<row; i++) {
-				out.println(gift[i].getName().replace(' ', '_') + " " + gift[i].getDate() + " " + gift[i].getBDate());
+				out.println(gift[i].getName().replace(' ', '_') + " " + gift[i].getOrdDate() + " " + gift[i].getDate() + " " + gift[i].getBDate());
 
 			}
 			} catch (IOException e) {
@@ -34,7 +34,7 @@ public class EditReservedData {
 				currentDate.openFile();
 				currentDate.readFile();
 				currentDate.closeFile();
-				out.println(gift[row].getName().replace(' ', '_') + " " + date + " " + currentDate.getCurrentDate());
+				out.println(gift[row].getName().replace(' ', '_') + " " + gift[row].getFrom() + "/" + gift[row].getTo() + " " + date + " " + currentDate.getCurrentDate());
 				
 			} catch (IOException e) {
 			    //exception handling left as an exercise for the readers

@@ -23,8 +23,8 @@ public class DatePickerReserved {
 	private int row;
 	private int selectedRow;
 	
-	ReadAndStore kek = new ReadAndStore();
-	GiftBean[] check = kek.store();
+	ReadAndStoreReserved kek = new ReadAndStoreReserved();
+	ReservedBean[] check = kek.store();
 
 	JFrame frame;
 
@@ -142,6 +142,16 @@ public class DatePickerReserved {
 											return;
 										}
 										
+										for(int k=1; k<=12; k++) {
+											if(Integer.parseInt(getMonth()) == k && check[selectedRow].getFrom() <= k && check[selectedRow].getTo() >= k) {
+												 bounds = true;
+											}
+										}
+										if(bounds == false) {
+											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
+										return;
+										}
+										
 										ReadAndStoreReserved kek = new ReadAndStoreReserved();
 										ReservedBean[] gift = kek.store();
 										ReadReserved rows = new ReadReserved();
@@ -203,6 +213,15 @@ public class DatePickerReserved {
 											return;
 										}
 
+										for(int k=1; k<=12; k++) {
+											if(Integer.parseInt(getMonth()) == k && check[selectedRow].getFrom() <= k && check[selectedRow].getTo() >= k) {
+												 bounds = true;
+											}
+										}
+										if(bounds == false) {
+											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
+										return;
+										}
 
 										ReadAndStoreReserved kek = new ReadAndStoreReserved();
 										ReservedBean[] gift = kek.store();
@@ -261,6 +280,16 @@ public class DatePickerReserved {
 											else if (getDay() == "Day") {
 												JOptionPane.showMessageDialog(null, "Please select day");
 												return;
+											}
+											
+											for(int k=1; k<=12; k++) {
+												if(Integer.parseInt(getMonth()) == k && check[selectedRow].getFrom() <= k && check[selectedRow].getTo() >= k) {
+													 bounds = true;
+												}
+											}
+											if(bounds == false) {
+												JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
+											return;
 											}
 											
 											ReadAndStoreReserved kek = new ReadAndStoreReserved();
