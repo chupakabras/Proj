@@ -2,6 +2,7 @@ package proj;
 import java.io.*;
 import java.util.*;
 
+//Reading the content of ReservedData.txt
 public class ReadReserved {
 	
 	private Scanner f;

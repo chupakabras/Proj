@@ -3,6 +3,7 @@ package proj;
 import java.io.File;
 import java.util.Scanner;
 
+//Reading current date from CurrentDate.txt
 public class ReadCurrentDate {
 	 private Scanner x;
 	 private String date;

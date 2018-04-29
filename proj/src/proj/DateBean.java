@@ -1,5 +1,6 @@
 package proj;
-// 
+
+//Bean class for storing Date
 public class DateBean {
 
 	private int year;
@@ -30,5 +31,4 @@ public class DateBean {
 	public String toString() {
 		return (getYear() + "-" + getMonth() + "-" + getDay());
 	}
-	
 }

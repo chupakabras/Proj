@@ -3,9 +3,6 @@ package proj;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
-import java.util.*;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,11 +19,9 @@ public class Selection extends JFrame {
 	GiftBean[] gift = kek.store();
 	ReadFile rows = new ReadFile();
 	ReadCurrentDate currentDate = new ReadCurrentDate();
-
-	
-
-	//String strI = Integer.toString(i);
 	JTable table;
+	
+	//Creating JTable to display the contents of GiftData.txt
 	public Selection () {
 		setLayout(new FlowLayout());
 		String[] columnNames = {"Gift Name", "Available for", "Left","Reserved" };
@@ -38,7 +33,6 @@ public class Selection extends JFrame {
 				data[i][3] = Integer.toString(gift[i].getReserved());
 				}		
 						
-
 		table = new JTable (data, columnNames);
 		table.getColumnModel().getColumn(0).setPreferredWidth(300);
 		table.getColumnModel().getColumn(1).setPreferredWidth(85);
@@ -47,11 +41,11 @@ public class Selection extends JFrame {
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
 		
-		JButton btnSelectThisDate = new JButton("Refresh");
-		btnSelectThisDate.addActionListener(new ActionListener() {
+		//Creating the refresh button
+		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
-				//setVisible(false);
 				Selection gui = new Selection();
 				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 				gui.setResizable(false);
@@ -61,11 +55,13 @@ public class Selection extends JFrame {
 			}
 
 		});
-		btnSelectThisDate.setBounds(490, 490, 130, 23);
-		getContentPane().add(btnSelectThisDate);
+		btnRefresh.setBounds(490, 490, 130, 23);
+		getContentPane().add(btnRefresh);
 		currentDate.openFile();
 		currentDate.readFile();
 		currentDate.closeFile();
+		
+		//Printing current date near the refresh button
 		JLabel label1 = new JLabel("Current date " + currentDate.getCurrentDate());
 		label1.setBounds(500, 490, 130, 23);
 		getContentPane().add(label1);
@@ -74,7 +70,6 @@ public class Selection extends JFrame {
 		ListSelectionModel model = table.getSelectionModel();
 		model.addListSelectionListener(new ListSelectionListener() {
 			
-//
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				if (! model.isSelectionEmpty())
@@ -85,12 +80,6 @@ public class Selection extends JFrame {
 					if (gift[selectedRow].getRemaining()>0) {
 					DatePicker d = new DatePicker(selectedRow);
 					d.main(selectedRow);
-					/*
-					EditGiftData edit = new EditGiftData();
-					edit.writeFile(rows.getNumberOfRows(), gift);
-					EditReservedData rowadd = new EditReservedData();
-					rowadd.addRow(selectedRow, gift);
-					*/
 					}
 					else {
 						JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is not avalaible");

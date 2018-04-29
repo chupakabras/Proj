@@ -2,6 +2,7 @@ package proj;
 import java.io.*;
 import java.util.*;
 
+//Reading the content of GiftData.txt
 public class ReadFile {
 	
 	private Scanner f;

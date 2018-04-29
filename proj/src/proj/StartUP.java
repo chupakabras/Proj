@@ -3,7 +3,6 @@ package proj;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -12,9 +11,7 @@ public class StartUP {
 
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
+	//Invoking the main window with selection buttons
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -27,7 +24,7 @@ public class StartUP {
 			}
 		});
 		
-		
+		//Invoking time flow window
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -39,17 +36,12 @@ public class StartUP {
 			}
 		});
 	}
-
-	/**
-	 * Create the application.
-	 */
+	
 	public StartUP() {
 		initialize();
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
+	//Initializing the main window
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 282, 83);
@@ -61,10 +53,7 @@ public class StartUP {
 		JButton btnReserve = new JButton("Your Reservations");
 		btnReserve.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent args0) {
-				/*
-				ReserveDate s = new ReserveDate();
-				s.setVisible(true);	
-				*/
+
 				ReserveDate gui = new ReserveDate();
 				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 				gui.setSize(670, 520); 
@@ -80,10 +69,6 @@ public class StartUP {
 		JButton btnBuy = new JButton("Gift Shop");
 		btnBuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*
-				Selection s = new Selection();
-				s.setVisible(true);	
-				*/
 				
 				Selection gui = new Selection();
 				gui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

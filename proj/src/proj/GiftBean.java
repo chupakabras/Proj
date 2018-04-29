@@ -1,5 +1,6 @@
 package proj;
-//
+
+//Bean class for storing GiftData
 public class GiftBean {
 	
 	private String name;

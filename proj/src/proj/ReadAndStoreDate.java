@@ -2,6 +2,7 @@ package proj;
 
 public class ReadAndStoreDate{
 	private int rows;
+	//Reading Date.txt and storing the information about every gift to a DateBean object
 	public DateBean store() {
 		
 		ReadDate r = new ReadDate();

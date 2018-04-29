@@ -9,7 +9,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,8 +18,6 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
-import javafx.application.Application;
 
 public class ReserveDate extends JFrame {
 
@@ -32,9 +29,9 @@ public class ReserveDate extends JFrame {
 	private Scanner x;
 	private String date;
 
-	// String strI = Integer.toString(i);
 	JTable table;
-
+	
+	//Creating JTable to display the contents of ReservedData.txt
 	public ReserveDate() {
 
 		openFile();
@@ -54,8 +51,11 @@ public class ReserveDate extends JFrame {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 			LocalDate firstDate = LocalDate.parse(convert.convertDate(currentDate.getCurrentDate()), formatter);
 			LocalDate secDate = LocalDate.parse(convert.convertDate(date), formatter);
-			long days = ChronoUnit.DAYS.between(secDate, firstDate);
+			
+			//Calculating the day difference between current date and the date when the gift was bought
+			long days = ChronoUnit.DAYS.between(secDate, firstDate); //Chrono unit is a standard set of date periods units.
 
+			//Checking whether the gift is expired or not
 			if (days >= 31) {
 				data[i][4] = "Expired";
 				gift[i].setState(data[i][4]);
@@ -73,8 +73,9 @@ public class ReserveDate extends JFrame {
 		scrollPane.setPreferredSize(new Dimension(620, 430));
 		add(scrollPane);
 
-		JButton btnSelectThisDate = new JButton("Refresh");
-		btnSelectThisDate.addActionListener(new ActionListener() {
+		//Creating the refresh button
+		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
 				ReserveDate gui = new ReserveDate();
@@ -86,11 +87,13 @@ public class ReserveDate extends JFrame {
 			}
 
 		});
-		btnSelectThisDate.setBounds(490, 490, 130, 23);
-		getContentPane().add(btnSelectThisDate);
+		btnRefresh.setBounds(490, 490, 130, 23);
+		getContentPane().add(btnRefresh);
 		currentDate.openFile();
 		currentDate.readFile();
 		currentDate.closeFile();
+		
+		//Printing current date near the refresh button
 		JLabel label1 = new JLabel("Current date " + currentDate.getCurrentDate());
 		label1.setBounds(500, 490, 130, 23);
 		getContentPane().add(label1);

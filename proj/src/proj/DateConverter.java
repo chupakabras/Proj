@@ -2,6 +2,7 @@ package proj;
 
 public class DateConverter {
 	
+	//Changing the format of date by adding zeros where needed
 	String convertDate(String oldDate) {
 		String newDate;
 		boolean month = false;

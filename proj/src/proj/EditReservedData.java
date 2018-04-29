@@ -1,18 +1,20 @@
 package proj; 
 
 import java.io.*;
-import java.lang.*;
-import java.util.*;
 
 public class EditReservedData {
 	ReadCurrentDate currentDate = new ReadCurrentDate();
 	
 	public void writeFile(int row, ReservedBean[] gift) {
+		
+		//Creating objects for ReservedData.txt reformatting
 		try(FileWriter fw = new FileWriter("ReservedData.txt", true);
 			    BufferedWriter bw = new BufferedWriter(fw);
 			    PrintWriter out = new PrintWriter(bw))
 			{
 			PrintWriter writer = new PrintWriter("ReservedData.txt");
+			
+			//closing the writer so it overwrites the existing file
 			writer.close();
 			currentDate.openFile();
 			currentDate.readFile();
@@ -22,7 +24,7 @@ public class EditReservedData {
 
 			}
 			} catch (IOException e) {
-			    //exception handling left as an exercise for the reader
+			    System.out.println("An error has occured while trying to reformat ReservedDate.txt");
 			}		
 	}
 	
@@ -37,7 +39,7 @@ public class EditReservedData {
 				out.println(gift[row].getName().replace(' ', '_') + " " + gift[row].getFrom() + "/" + gift[row].getTo() + " " + date + " " + currentDate.getCurrentDate());
 				
 			} catch (IOException e) {
-			    //exception handling left as an exercise for the readers
+				System.out.println("An error has occured while trying to add row to ReservedDate.txt");
 			}		
 	}
 }

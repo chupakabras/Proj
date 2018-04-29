@@ -2,6 +2,7 @@ package proj;
 import java.io.*;
 import java.util.*;
 
+//Reading date from Date.txt
 public class ReadDate {
 	
 	private Scanner f;

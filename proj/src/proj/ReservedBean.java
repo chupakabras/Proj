@@ -1,5 +1,5 @@
 package proj;
-//
+//Bean class for storing ReservedData
 public class ReservedBean {
 	private String name;
 	private String date;

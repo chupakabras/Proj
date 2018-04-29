@@ -2,6 +2,8 @@ package proj;
 
 public class ReadAndStoreReserved{
 	private int rows;
+	
+	//Reading ReservedData.txt and storing the information about every gift to a ReservedBean object
 	public ReservedBean[] store() {
 		
 		ReadReserved r = new ReadReserved();

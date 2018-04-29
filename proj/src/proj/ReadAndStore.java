@@ -2,6 +2,8 @@ package proj;
 
 public class ReadAndStore{
 	private int rows;
+	
+	//Reading GiftData.txt and storing the information about every gift to a GiftBean object
 	public GiftBean[] store() {
 		
 		ReadFile r = new ReadFile();

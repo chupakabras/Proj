@@ -7,10 +7,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Formatter;
-import java.util.Scanner;
 import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
-import javax.swing.JPasswordField;
 
 public class TimeFlow {
 	private DateBean date = new DateBean();
@@ -18,9 +15,7 @@ public class TimeFlow {
 	
 	JFrame frmTimeControl;
 
-	/**
-	 * Launch the application./
-	 */
+	//Invoking the time control window
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -34,16 +29,10 @@ public class TimeFlow {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public TimeFlow() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frmTimeControl = new JFrame();
 		frmTimeControl.setTitle("Time control");
@@ -59,10 +48,12 @@ public class TimeFlow {
 		addDate();
 		closeFile();
 		
+		//Button for adding one day to the date
 		JButton btnNewButton_3 = new JButton("1 day forward");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+				
+						//Date logic implementation
 						if(date.getDay() == 28 && date.getMonth() == 2 && date.getYear()%4!=0) {
 							date.setMonth(3);
 							date.setDay(1);
@@ -92,7 +83,7 @@ public class TimeFlow {
 					openFile();
 					addDate();
 					closeFile();
-					System.out.println(date.toString());
+					//System.out.println(date.toString()); //print current date to the console
 					
 					
 				}
@@ -101,8 +92,11 @@ public class TimeFlow {
 		btnNewButton_3.setBounds(10, 11, 130, 39);
 		frmTimeControl.getContentPane().add(btnNewButton_3);
 		
+		//Button for adding one month to the date
 		JButton btnNewButton_5 = new JButton("1 month forward");
 		btnNewButton_5.addActionListener(new ActionListener() {
+			
+			//Date logic implementation
 			public void actionPerformed(ActionEvent e) {
 				if(date.getMonth() == 12) {
 					date.setMonth(1);

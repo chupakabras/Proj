@@ -1,10 +1,7 @@
 package proj;
-//
 import java.awt.EventQueue;
-import java.awt.Window;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-
 import javax.swing.JFrame;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -21,16 +18,13 @@ public class DatePickerReserved {
 	private String day;
 	private String date;
 	private int row;
-	private int selectedRow;
 	
 	ReadAndStoreReserved kek = new ReadAndStoreReserved();
 	ReservedBean[] check = kek.store();
 
 	JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
+	//Invoking window in which we can change reservation date
 	public void main(int selectedRow) {
 
 		EventQueue.invokeLater(new Runnable() {
@@ -44,26 +38,19 @@ public class DatePickerReserved {
 			}
 		});
 	}
-
-	/**
-	 * Create the application.
-	 */
 	
 	public DatePickerReserved(int selectedRow) {
 	
 		initialize(selectedRow);
 	}
 
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize(int selectedRow) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 292, 146);
 		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
+		//Creating combo boxes for year, month and day for date selection
 		JComboBox comboBox = new JComboBox();
 		JComboBox comboBox2 = new JComboBox();
 		JComboBox comboBox3 = new JComboBox();
@@ -91,10 +78,9 @@ public class DatePickerReserved {
 				comboBox2.addItemListener(new ItemListener() {
 					public void itemStateChanged(ItemEvent event) {
 						if (event.getStateChange() == ItemEvent.SELECTED) {
-							
-							
 							setMonth((String) comboBox2.getSelectedItem());
 							
+							//Assigning number of days for specific months
 							if (getMonth().equals("1") || getMonth().equals("3") || getMonth().equals("5")
 									|| getMonth().equals("8") || getMonth().equals("10")
 									|| getMonth().equals("12") || getMonth().equals("7")) {
@@ -113,6 +99,8 @@ public class DatePickerReserved {
 										setDay((String) comboBox3.getSelectedItem());
 										setDate();
 										boolean bounds = false;
+										
+										//Checking for invalid inputs
 										if (getYear() == "Year" && getMonth() == "Month" && getDay() == "Day") {
 											JOptionPane.showMessageDialog(null, "Please select year, month and day");
 											return;
@@ -152,11 +140,14 @@ public class DatePickerReserved {
 										return;
 										}
 										
+										//If no invalid inputs are detected, continue
 										ReadAndStoreReserved kek = new ReadAndStoreReserved();
 										ReservedBean[] gift = kek.store();
 										ReadReserved rows = new ReadReserved();
 										gift[selectedRow].setDate(getDate());
 										EditReservedData reformat = new EditReservedData();
+										
+										//Edit ReservedDate.txt
 										reformat.writeFile(rows.getNumberOfRows(), gift);
 										frame.setVisible(false);
 
@@ -167,6 +158,7 @@ public class DatePickerReserved {
 								frame.getContentPane().add(btnSelectThisDate);
 								frame.repaint();
 
+								//Assigning number of days for specific months
 							} else if (getMonth().equals("4") || getMonth().equals("6")
 									|| getMonth().equals("9") || getMonth().equals("11")) {
 								comboBox3.setModel(new DefaultComboBoxModel(new String[] {"Day", "1", "2", "3", "4", "5", "6",
@@ -184,6 +176,8 @@ public class DatePickerReserved {
 										setDay((String) comboBox3.getSelectedItem());
 										setDate();
 										boolean bounds = false;
+										
+										//Checking for invalid inputs
 										if (getYear() == "Year" && getMonth() == "Month" && getDay() == "Day") {
 											JOptionPane.showMessageDialog(null, "Please select year, month and day");
 											return;
@@ -222,12 +216,15 @@ public class DatePickerReserved {
 											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
 										return;
 										}
-
+										
+										//If no invalid inputs are detected, continue
 										ReadAndStoreReserved kek = new ReadAndStoreReserved();
 										ReservedBean[] gift = kek.store();
 										ReadReserved rows = new ReadReserved();
 										gift[selectedRow].setDate(getDate());
 										EditReservedData reformat = new EditReservedData();
+										
+										//Edit ReservedDate.txt
 										reformat.writeFile(rows.getNumberOfRows(), gift);
 										frame.setVisible(false);
 
@@ -297,6 +294,8 @@ public class DatePickerReserved {
 											ReadReserved rows = new ReadReserved();
 											gift[selectedRow].setDate(getDate());
 											EditReservedData reformat = new EditReservedData();
+											
+											//Edit ReservedDate.txt
 											reformat.writeFile(rows.getNumberOfRows(), gift);
 											frame.setVisible(false);
 
