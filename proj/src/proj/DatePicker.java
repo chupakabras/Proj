@@ -1,4 +1,5 @@
 package proj;
+
 import java.awt.EventQueue;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -19,13 +20,13 @@ public class DatePicker {
 	private String day;
 	private String date;
 	private int row;
-	
+
 	ReadAndStore kek = new ReadAndStore();
 	GiftBean[] check = kek.store();
 
 	JFrame frame;
 
-	//Invoking window in which we can select desired date
+	// Invoking window in which we can select desired date
 	public void main(int selectedRow) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -38,9 +39,9 @@ public class DatePicker {
 			}
 		});
 	}
-	
+
 	public DatePicker(int selectedRow) {
-	
+
 		initialize(selectedRow);
 	}
 
@@ -49,8 +50,8 @@ public class DatePicker {
 		frame.setBounds(100, 100, 292, 146);
 		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		//Creating combo boxes for year, month and day for date selection
+
+		// Creating combo boxes for year, month and day for date selection
 		JComboBox comboBox = new JComboBox();
 		JComboBox comboBox2 = new JComboBox();
 		JComboBox comboBox3 = new JComboBox();
@@ -69,8 +70,8 @@ public class DatePicker {
 				if (event.getStateChange() == ItemEvent.SELECTED)
 					setYear((String) comboBox.getSelectedItem());
 
-				comboBox2.setModel(new DefaultComboBoxModel(new String[] {"Month", "1", "2", "3", "4",
-						"5", "6", "7", "8", "9", "10", "11", "12" }));
+				comboBox2.setModel(new DefaultComboBoxModel(
+						new String[] { "Month", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 				comboBox2.setToolTipText("Month");
 				comboBox2.setBounds(100, 38, 90, 22);
 				frame.getContentPane().add(comboBox2);
@@ -79,14 +80,15 @@ public class DatePicker {
 					public void itemStateChanged(ItemEvent event) {
 						if (event.getStateChange() == ItemEvent.SELECTED) {
 							setMonth((String) comboBox2.getSelectedItem());
-							
-							//Assigning number of days for specific months
+
+							// Assigning number of days for specific months
 							if (getMonth().equals("1") || getMonth().equals("3") || getMonth().equals("5")
-									|| getMonth().equals("8") || getMonth().equals("10")
-									|| getMonth().equals("12") || getMonth().equals("7")) {
-								comboBox3.setModel(new DefaultComboBoxModel(new String[] {"Day", "1", "2", "3", "4", "5", "6",
-										"7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-										"21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+									|| getMonth().equals("8") || getMonth().equals("10") || getMonth().equals("12")
+									|| getMonth().equals("7")) {
+								comboBox3.setModel(new DefaultComboBoxModel(
+										new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
+												"12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23",
+												"24", "25", "26", "27", "28", "29", "30", "31" }));
 								comboBox3.setToolTipText("Day");
 								comboBox3.setBounds(210, 38, 50, 22);
 								frame.getContentPane().add(comboBox3);
@@ -99,54 +101,67 @@ public class DatePicker {
 										setDay((String) comboBox3.getSelectedItem());
 										setDate();
 										boolean bounds = false;
-										
-										//Checking for invalid inputs
+
+										// Checking for invalid inputs
 										if (getYear() == "Year" && getMonth() == "Month" && getDay() == "Day") {
 											JOptionPane.showMessageDialog(null, "Please select year, month and day");
 											return;
-										}
-										else if (getYear() == "Year" && getMonth() == "Month") {
+										} else if (getYear() == "Year" && getMonth() == "Month") {
 											JOptionPane.showMessageDialog(null, "Please select year and month");
 											return;
-										}
-										else if (getYear() == "Year" && getDay() == "Day") {
+										} else if (getYear() == "Year" && getDay() == "Day") {
 											JOptionPane.showMessageDialog(null, "Please select year and day");
 											return;
-										}
-										else if (getMonth() == "Month" && getDay() == "Day") {
+										} else if (getMonth() == "Month" && getDay() == "Day") {
 											JOptionPane.showMessageDialog(null, "Please select month and day");
 											return;
-										}
-										else if (getYear()== "Year") {
+										} else if (getYear() == "Year") {
 											JOptionPane.showMessageDialog(null, "Please select year");
 											return;
-										}
-										else if (getMonth() == "Month") {
+										} else if (getMonth() == "Month") {
 											JOptionPane.showMessageDialog(null, "Please select month");
 											return;
-										}
-										else if (getDay() == "Day") {
+										} else if (getDay() == "Day") {
 											JOptionPane.showMessageDialog(null, "Please select day");
 											return;
 										}
 
-										for(int k=1; k<=12; k++) {
-											if(Integer.parseInt(getMonth()) == k && check[selectedRow].getFrom() <= k && check[selectedRow].getTo() >= k) {
-												 bounds = true;
+										for (int k = 1; k <= 12; k++) {
+											if (Integer.parseInt(getMonth()) == k && check[selectedRow].getFrom() <= k
+													&& check[selectedRow].getTo() >= k) {
+												bounds = true;
 											}
 										}
-										if(bounds == false) {
-											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
-										return;
+										if (bounds == false) {
+											JOptionPane.showMessageDialog(null,
+													check[selectedRow].getName() + " is not avalaible for this month");
+											return;
 										}
-										
-										//If no invalid inputs are detected, continue
+
+										// Checking if the selected date is not in the past
+										ReadCurrentDate currentDate = new ReadCurrentDate();
+										currentDate.openFile();
+										currentDate.readFile();
+										currentDate.closeFile();
+
+										if (currentDate.getYear() > Integer.parseInt(getYear())
+												|| ((currentDate.getYear() == Integer.parseInt(getYear())
+														&& (currentDate.getMonth() > Integer.parseInt(getMonth()))))
+												|| ((currentDate.getYear() == Integer.parseInt(getYear())
+														&& (currentDate.getMonth() == Integer.parseInt(getMonth()))
+														&& (currentDate.getDay() > Integer.parseInt(getDay()))))) {
+											JOptionPane.showMessageDialog(null,
+													"Reservations to the past are not available");
+											return;
+										}
+
+										// If no invalid inputs are detected, continue
 										ReadAndStore kek = new ReadAndStore();
 										GiftBean[] gift = kek.store();
 										ReadFile rows = new ReadFile();
 										EditGiftData edit = new EditGiftData();
-										
-										//Edit GiftData.txt and add row to ReservedData.txt
+
+										// Edit GiftData.txt and add row to ReservedData.txt
 										gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
 										gift[selectedRow].setRemaining(gift[selectedRow].getRemaining() - 1);
 										edit.writeFile(rows.getNumberOfRows(), gift);
@@ -160,12 +175,12 @@ public class DatePicker {
 								frame.getContentPane().add(btnSelectThisDate);
 								frame.repaint();
 
-								//Assigning number of days for specific months
-							} else if (getMonth().equals("4") || getMonth().equals("6")
-									|| getMonth().equals("9") || getMonth().equals("11")) {
-								comboBox3.setModel(new DefaultComboBoxModel(new String[] {"Day", "1", "2", "3", "4", "5", "6",
-										"7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-										"21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+								// Assigning number of days for specific months
+							} else if (getMonth().equals("4") || getMonth().equals("6") || getMonth().equals("9")
+									|| getMonth().equals("11")) {
+								comboBox3.setModel(new DefaultComboBoxModel(new String[] { "Day", "1", "2", "3", "4",
+										"5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18",
+										"19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
 								comboBox3.setToolTipText("Day");
 								comboBox3.setBounds(210, 38, 50, 22);
 								frame.getContentPane().add(comboBox3);
@@ -178,54 +193,66 @@ public class DatePicker {
 										setDay((String) comboBox3.getSelectedItem());
 										setDate();
 										boolean bounds = false;
-										
-										//Checking for invalid inputs
+
+										// Checking for invalid inputs
 										if (getYear() == "Year" && getMonth() == "Month" && getDay() == "Day") {
 											JOptionPane.showMessageDialog(null, "Please select year, month and day");
 											return;
-										}
-										else if (getYear() == "Year" && getMonth() == "Month") {
+										} else if (getYear() == "Year" && getMonth() == "Month") {
 											JOptionPane.showMessageDialog(null, "Please select year and month");
 											return;
-										}
-										else if (getYear() == "Year" && getDay() == "Day") {
+										} else if (getYear() == "Year" && getDay() == "Day") {
 											JOptionPane.showMessageDialog(null, "Please select year and day");
 											return;
-										}
-										else if (getMonth() == "Month" && getDay() == "Day") {
+										} else if (getMonth() == "Month" && getDay() == "Day") {
 											JOptionPane.showMessageDialog(null, "Please select month and day");
 											return;
-										}
-										else if (getYear()== "Year") {
+										} else if (getYear() == "Year") {
 											JOptionPane.showMessageDialog(null, "Please select year");
 											return;
-										}
-										else if (getMonth() == "Month") {
+										} else if (getMonth() == "Month") {
 											JOptionPane.showMessageDialog(null, "Please select month");
 											return;
-										}
-										else if (getDay() == "Day") {
+										} else if (getDay() == "Day") {
 											JOptionPane.showMessageDialog(null, "Please select day");
 											return;
 										}
 
-										for(int k=1; k<=12; k++) {
-											if(Integer.parseInt(getMonth()) == k && check[selectedRow].getFrom() <= k && check[selectedRow].getTo() >= k) {
-												 bounds = true;
+										for (int k = 1; k <= 12; k++) {
+											if (Integer.parseInt(getMonth()) == k && check[selectedRow].getFrom() <= k
+													&& check[selectedRow].getTo() >= k) {
+												bounds = true;
 											}
 										}
-										if(bounds == false) {
-											JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
-										return;
+										if (bounds == false) {
+											JOptionPane.showMessageDialog(null,
+													check[selectedRow].getName() + " is not avalaible for this month");
+											return;
 										}
-										
-										//If no invalid inputs are detected, continue
+
+										ReadCurrentDate currentDate = new ReadCurrentDate();
+										currentDate.openFile();
+										currentDate.readFile();
+										currentDate.closeFile();
+
+										if (currentDate.getYear() > Integer.parseInt(getYear())
+												|| ((currentDate.getYear() == Integer.parseInt(getYear())
+														&& (currentDate.getMonth() > Integer.parseInt(getMonth()))))
+												|| ((currentDate.getYear() == Integer.parseInt(getYear())
+														&& (currentDate.getMonth() == Integer.parseInt(getMonth()))
+														&& (currentDate.getDay() > Integer.parseInt(getDay()))))) {
+											JOptionPane.showMessageDialog(null,
+													"Reservations to the past are not available");
+											return;
+										}
+
+										// If no invalid inputs are detected, continue
 										ReadAndStore kek = new ReadAndStore();
 										GiftBean[] gift = kek.store();
 										ReadFile rows = new ReadFile();
 										EditGiftData edit = new EditGiftData();
 
-										//edit GiftData.txt and add row to ReservedData.txt
+										// edit GiftData.txt and add row to ReservedData.txt
 										gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
 										gift[selectedRow].setRemaining(gift[selectedRow].getRemaining() - 1);
 										edit.writeFile(rows.getNumberOfRows(), gift);
@@ -238,11 +265,11 @@ public class DatePicker {
 								frame.getContentPane().add(btnSelectThisDate);
 								frame.repaint();
 
-								//Assigning number of days for specific months
+								// Assigning number of days for specific months
 							} else if (getMonth().equals("2")) {
-								comboBox3.setModel(new DefaultComboBoxModel(new String[] {"Day", "1", "2", "3", "4", "5", "6",
-										"7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-										"21", "22", "23", "24", "25", "26", "27", "28" }));
+								comboBox3.setModel(new DefaultComboBoxModel(new String[] { "Day", "1", "2", "3", "4",
+										"5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18",
+										"19", "20", "21", "22", "23", "24", "25", "26", "27", "28" }));
 								comboBox3.setToolTipText("Day");
 								comboBox3.setBounds(210, 38, 50, 22);
 								frame.getContentPane().add(comboBox3);
@@ -255,54 +282,68 @@ public class DatePicker {
 											setDay((String) comboBox3.getSelectedItem());
 											setDate();
 											boolean bounds = false;
-											
-											//Checking for invalid inputs
+
+											// Checking for invalid inputs
 											if (getYear() == "Year" && getMonth() == "Month" && getDay() == "Day") {
-												JOptionPane.showMessageDialog(null, "Please select year, month and day");
+												JOptionPane.showMessageDialog(null,
+														"Please select year, month and day");
 												return;
-											}
-											else if (getYear() == "Year" && getMonth() == "Month") {
+											} else if (getYear() == "Year" && getMonth() == "Month") {
 												JOptionPane.showMessageDialog(null, "Please select year and month");
 												return;
-											}
-											else if (getYear() == "Year" && getDay() == "Day") {
+											} else if (getYear() == "Year" && getDay() == "Day") {
 												JOptionPane.showMessageDialog(null, "Please select year and day");
 												return;
-											}
-											else if (getMonth() == "Month" && getDay() == "Day") {
+											} else if (getMonth() == "Month" && getDay() == "Day") {
 												JOptionPane.showMessageDialog(null, "Please select month and day");
 												return;
-											}
-											else if (getYear()== "Year") {
+											} else if (getYear() == "Year") {
 												JOptionPane.showMessageDialog(null, "Please select year");
 												return;
-											}
-											else if (getMonth() == "Month") {
+											} else if (getMonth() == "Month") {
 												JOptionPane.showMessageDialog(null, "Please select month");
 												return;
-											}
-											else if (getDay() == "Day") {
+											} else if (getDay() == "Day") {
 												JOptionPane.showMessageDialog(null, "Please select day");
 												return;
 											}
 
-											for(int k=1; k<=12; k++) {
-												if(Integer.parseInt(getMonth()) == k && check[selectedRow].getFrom() <= k && check[selectedRow].getTo() >= k) {
-													 bounds = true;
+											for (int k = 1; k <= 12; k++) {
+												if (Integer.parseInt(getMonth()) == k
+														&& check[selectedRow].getFrom() <= k
+														&& check[selectedRow].getTo() >= k) {
+													bounds = true;
 												}
 											}
-											if(bounds == false) {
-												JOptionPane.showMessageDialog(null, check[selectedRow].getName() + " is not avalaible for "+ getMonth());
-											return;
+											if (bounds == false) {
+												JOptionPane.showMessageDialog(null, check[selectedRow].getName()
+														+ " is not avalaible for this month");
+												return;
 											}
-											
-											//If no invalid inputs are detected, continue
+
+											ReadCurrentDate currentDate = new ReadCurrentDate();
+											currentDate.openFile();
+											currentDate.readFile();
+											currentDate.closeFile();
+
+											if (currentDate.getYear() > Integer.parseInt(getYear())
+													|| ((currentDate.getYear() == Integer.parseInt(getYear())
+															&& (currentDate.getMonth() > Integer.parseInt(getMonth()))))
+													|| ((currentDate.getYear() == Integer.parseInt(getYear())
+															&& (currentDate.getMonth() == Integer.parseInt(getMonth()))
+															&& (currentDate.getDay() > Integer.parseInt(getDay()))))) {
+												JOptionPane.showMessageDialog(null,
+														"Reservations to the past are not available");
+												return;
+											}
+
+											// If no invalid inputs are detected, continue
 											ReadAndStore kek = new ReadAndStore();
 											GiftBean[] gift = kek.store();
 											ReadFile rows = new ReadFile();
 											EditGiftData edit = new EditGiftData();
-											
-											//edit GiftData.txt and add row to ReservedData.txt
+
+											// edit GiftData.txt and add row to ReservedData.txt
 											gift[selectedRow].setReserved(gift[selectedRow].getReserved() + 1);
 											gift[selectedRow].setRemaining(gift[selectedRow].getRemaining() - 1);
 											edit.writeFile(rows.getNumberOfRows(), gift);
@@ -348,6 +389,7 @@ public class DatePicker {
 	private String getDay() {
 		return day;
 	}
+
 	private void setDate() {
 		date = year + "-" + month + "-" + day;
 	}

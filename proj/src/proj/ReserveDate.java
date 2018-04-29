@@ -30,8 +30,8 @@ public class ReserveDate extends JFrame {
 	private String date;
 
 	JTable table;
-	
-	//Creating JTable to display the contents of ReservedData.txt
+
+	// Creating JTable to display the contents of ReservedData.txt
 	public ReserveDate() {
 
 		openFile();
@@ -44,20 +44,25 @@ public class ReserveDate extends JFrame {
 			data[i][1] = gift[i].getOrdDate();
 			data[i][2] = gift[i].getDate().replace("_", " ");
 			data[i][3] = date;
-						
+
 			currentDate.openFile();
 			currentDate.readFile();
 			currentDate.closeFile();
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 			LocalDate firstDate = LocalDate.parse(convert.convertDate(currentDate.getCurrentDate()), formatter);
 			LocalDate secDate = LocalDate.parse(convert.convertDate(date), formatter);
-			
-			//Calculating the day difference between current date and the date when the gift was bought
-			long days = ChronoUnit.DAYS.between(secDate, firstDate); //Chrono unit is a standard set of date periods units.
 
-			//Checking whether the gift is expired or not
+			// Calculating the day difference between current date and the date when the
+			// gift was bought
+			long days = ChronoUnit.DAYS.between(secDate, firstDate); // Chrono unit is a standard set of date periods
+																		// units.
+
+			// Checking whether the gift is expired or not
 			if (days >= 31) {
 				data[i][4] = "Expired";
+				gift[i].setState(data[i][4]);
+			} else if (days < 0) {
+				data[i][4] = "In the future";
 				gift[i].setState(data[i][4]);
 			} else
 				data[i][4] = Long.toString(31 - days) + " days left";
@@ -73,7 +78,7 @@ public class ReserveDate extends JFrame {
 		scrollPane.setPreferredSize(new Dimension(620, 430));
 		add(scrollPane);
 
-		//Creating the refresh button
+		// Creating the refresh button
 		JButton btnRefresh = new JButton("Refresh");
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -92,8 +97,8 @@ public class ReserveDate extends JFrame {
 		currentDate.openFile();
 		currentDate.readFile();
 		currentDate.closeFile();
-		
-		//Printing current date near the refresh button
+
+		// Printing current date near the refresh button
 		JLabel label1 = new JLabel("Current date " + currentDate.getCurrentDate());
 		label1.setBounds(500, 490, 130, 23);
 		getContentPane().add(label1);
@@ -109,12 +114,14 @@ public class ReserveDate extends JFrame {
 						int selectedRow = model.getMinSelectionIndex();
 						if (gift[selectedRow].getState().equals("Expired")) {
 							JOptionPane.showMessageDialog(null, gift[selectedRow].getName() + " is expired");
-						}
-						else {
+						} else if (gift[selectedRow].getState().equals("In the future")) {
+							JOptionPane.showMessageDialog(null,
+									gift[selectedRow].getName() + " is bought in the future");
+						} else {
 							DatePickerReserved d = new DatePickerReserved(selectedRow);
 							d.main(selectedRow);
 						}
-						
+
 					}
 				}
 				closeFile();
